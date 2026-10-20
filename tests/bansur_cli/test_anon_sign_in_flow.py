@@ -221,10 +221,12 @@ def test_already_signed_in_short_circuits_before_any_network(portal):
 
 def test_guests_switched_off_yields_unavailable(portal):
     _seed_free_tier()
-    from bansur_cli.config import load_config, save_config
-    config = load_config()
-    config["bansur"] = {"guest": False}
-    save_config(config)
+    # Guests are opt-in and the portal fixture opted in via the env override; an
+    # explicit bansur.guest: false in the user config is the off switch that beats
+    # it. (Written to the file directly: false is also the shipped default, so a
+    # load/save round-trip would persist no diff for the effective reader to see.)
+    from bansur_constants import get_bansur_home
+    (get_bansur_home() / "config.yaml").write_text("bansur:\n  guest: false\n")
     portal.calls.clear()
 
     states = _drain()

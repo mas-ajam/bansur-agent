@@ -115,18 +115,18 @@ ANON_UNREACHABLE_CODES = frozenset({ANON_UNREACHABLE, ANON_SERVER_ERROR})
 # what is unavailable is using Bansur without signing in, and signing in is free.
 _SIGNIN_IS_FREE = "Signing in is free."
 ANON_FAILURE_COPY = {
-    ANON_GATE_CLOSED: f"This version can't be used without a Bansur account. {_SIGNIN_IS_FREE}",
-    ANON_GATE_PAUSED: f"Using Bansur without signing in is paused for a moment. {_SIGNIN_IS_FREE}",
+    ANON_GATE_CLOSED: f"This version can't be used without an account. {_SIGNIN_IS_FREE}",
+    ANON_GATE_PAUSED: f"The free tier is paused for a moment. {_SIGNIN_IS_FREE}",
     ANON_RATE_LIMITED: "Lots of people are getting started right now. Try again in {wait}. "
                        "Signing in is free and skips the wait.",
-    ANON_POW_REQUIRED: "The Bansur server asked for a proof of work, but that isn't implemented in your "
-                       "Agent yet. Sign in with a Bansur account to continue.",
+    ANON_POW_REQUIRED: "The server asked for a proof of work, but that isn't implemented here yet. "
+                       "Sign in with an account to continue.",
     ANON_CHALLENGE_REQUIRED: "Finish the quick check in your browser, then try again.",
-    ANON_SIGNIN_REQUIRED: "Free guest access isn't available here. Sign in with a Bansur account to continue.",
+    ANON_SIGNIN_REQUIRED: "Free access isn't available here. Sign in with an account to continue.",
     ANON_ACCOUNT_LOCKED: f"This session can't continue without signing in. {_SIGNIN_IS_FREE}",
     ANON_CREDENTIAL_DEAD: "Your session ended. A new one starts on its own.",
-    ANON_UNREACHABLE: "The Bansur service couldn't be reached. Check your internet connection and try again.",
-    ANON_SERVER_ERROR: "The Bansur service had a hiccup. Try again in a moment.",
+    ANON_UNREACHABLE: "The service couldn't be reached. Check your internet connection and try again.",
+    ANON_SERVER_ERROR: "The service had a hiccup. Try again in a moment.",
 }
 
 
@@ -154,16 +154,21 @@ def anon_failure_copy(code: str, *, retry_after: Any = None) -> str:
 
 
 def guest_allowed() -> bool:
-    """``bansur.guest`` (default True) has not switched guests off: no connector guest, no trial."""
+    """Guests are opt-in. An explicit ``bansur.guest`` in the user's own config
+    decides either way (read through ``load_user_config_effective``, which merges
+    no defaults, so presence means explicit). Without one, pointing this client
+    at an account service (``BANSUR_PORTAL_BASE_URL`` / ``NOUS_PORTAL_BASE_URL``)
+    opts in. Otherwise guests stay off: the public build ships no account
+    service to mint them against, so first run goes to provider setup instead."""
     try:
-        from bansur_cli.config import load_config_readonly
-        bansur_cfg = load_config_readonly().get("bansur")
+        from bansur_cli.config_effective import load_user_config_effective
+        user_bansur = (load_user_config_effective() or {}).get("bansur")
     except Exception:  # config unreadable: keep today's behaviour (no guest) rather than mint
-        logger.debug("guest: config unreadable, treating bansur.guest as false", exc_info=True)
-        return False
-    if not isinstance(bansur_cfg, dict):
-        return True
-    return bool(bansur_cfg.get("guest", True))
+        logger.debug("guest: user config unreadable, treating bansur.guest as unset", exc_info=True)
+        user_bansur = None
+    if isinstance(user_bansur, dict) and "guest" in user_bansur:
+        return bool(user_bansur["guest"])
+    return bool(os.environ.get("BANSUR_PORTAL_BASE_URL") or os.environ.get("NOUS_PORTAL_BASE_URL"))
 
 
 def is_guest_state(state: Any) -> bool:
@@ -787,13 +792,13 @@ _WELCOME_ROUTE_REFUSALS = (
 _WELCOME_ROUTE_COPY = {
     # Only reachable when the route heal (``turn_recovery._recover_welcome_tier``) could not move
     # the session: the one cause left is a user-set BANSUR_INFERENCE_BASE_URL naming the paid host.
-    "anon_on_paid_host": "This install is set to use a different Bansur server (BANSUR_INFERENCE_BASE_URL). "
+    "anon_on_paid_host": "This install is set to use a different server (BANSUR_INFERENCE_BASE_URL). "
                          "Unset it to use the free model, or sign in. {signin}",
-    "named_on_welcome_host": "This Bansur account needs to reconnect. {model_hint}",
-    "tier_disabled": "Using Bansur without signing in is switched off right now. "
+    "named_on_welcome_host": "This account needs to reconnect. {model_hint}",
+    "tier_disabled": "Chatting without signing in is switched off right now. "
                      "Sign in to keep chatting, it's free. {signin}",
     # Only reachable when re-exchanging the free credential failed (``turn_recovery._recover_welcome_tier``).
-    "session_expired": "Bansur couldn't renew its connection to the free model. "
+    "session_expired": "The connection to the free model couldn't be renewed. "
                        "Send your message again, or sign in to keep chatting, it's free. {signin}",
 }
 # The sign-in door, phrased for a chat surface (slash command) and for a terminal.

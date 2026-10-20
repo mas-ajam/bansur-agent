@@ -46,6 +46,8 @@ def guest_home(monkeypatch, tmp_path):
     monkeypatch.setattr(models_mod, "get_curated_bansur_model_ids", lambda *a, **k: ["anthropic/claude-x", "openai/gpt-y"])
     monkeypatch.setattr(models_mod, "fetch_ollama_cloud_models", lambda *a, **k: [])
     monkeypatch.setattr(msp, "_bansur_picker_model_ids", lambda *a, **k: pytest.fail("guest must not fetch the Portal catalog"))
+    # The seeded guest lives in a deployment with the free tier on: guests are opt-in.
+    _write_config(monkeypatch, Path(os.environ["BANSUR_HOME"]), "bansur:\n  guest: true\n")
     return Path(os.environ["BANSUR_HOME"])
 
 

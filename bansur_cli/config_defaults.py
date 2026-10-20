@@ -2701,9 +2701,9 @@ DEFAULT_CONFIG = {
         "anthropic_wire": "chat",
         # Bansur free tier: with no other provider configured, Bansur sets up a free Bansur identity on
         # first use (inference on bansur/welcome + connectors) and offers `/login` (terminal:
-        # `bansur auth upgrade`) to sign in. false turns the free tier off entirely: nothing is set
-        # up and nothing is used.
-        "guest": True,
+        # `bansur auth upgrade`) to sign in. The public build ships no account service, so the default
+        # is false: nothing is set up or used. A deployment with an account service opts in with true.
+        "guest": False,
     },
     # Google Vertex AI (Gemini). Auth is OAuth2 from a service-account JSON or ADC, NOT an API key;
     # the credential path lives in .env (VERTEX_CREDENTIALS_PATH / GOOGLE_APPLICATION_CREDENTIALS).

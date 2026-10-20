@@ -18,7 +18,7 @@ UPGRADE_TIMED_OUT = "That sign-in link has expired. Start again whenever you're 
 UPGRADE_NOT_COMPLETED = "Sign-in didn't finish. Try again whenever you're ready."
 UPGRADE_UNAVAILABLE = "The free tier is not available right now; run `bansur auth add bansur` to sign in."
 UPGRADE_REASON_COPY = {
-    "user_declined": "No problem, you're still on the free Bansur service. Sign in whenever you're ready.",
+    "user_declined": "No problem, you're still on the free service. Sign in whenever you're ready.",
     "superseded": "A newer sign-in code replaced this one. Use the newest one, or start again.",
     "account_retired": "Your session ended before the sign-in finished. A new one starts on its own; "
                        "sign in again whenever you're ready.",
@@ -31,9 +31,9 @@ _RETIRED_REASONS = frozenset({"account_retired", "account_not_anonymous"})
 RETRYABLE_SIGN_IN_REASONS = frozenset({"account_busy"})
 # The account service was busy or unreachable mid sign-in (an ``anon_*`` code from
 # ``anon_auth``): the identity is untouched, so the copy reassures before the way forward.
-UPGRADE_SERVICE_BUSY = ("Signing in couldn't finish because the Bansur service is busy. "
+UPGRADE_SERVICE_BUSY = ("Signing in couldn't finish because the service is busy. "
                         "Try again in {wait}. Your session is still here in the meantime.")
-UPGRADE_SERVICE_UNREACHABLE = ("The Bansur service couldn't be reached to finish signing you in. "
+UPGRADE_SERVICE_UNREACHABLE = ("The service couldn't be reached to finish signing you in. "
                                "Check your internet connection and try again. Your session is still here.")
 
 UPGRADE_NO_DEFAULT_TERMINAL = "No default model is set yet; run `bansur model` to pick one."

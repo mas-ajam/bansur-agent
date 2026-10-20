@@ -70,6 +70,8 @@ def _account_state() -> dict:
 @pytest.fixture
 def isolated_store(monkeypatch, tmp_path):
     monkeypatch.setenv("BANSUR_SHARED_AUTH_DIR", str(tmp_path / "shared-store"))
+    # The seeded guest lives in a deployment with the free tier on: guests are opt-in.
+    (get_bansur_home() / "config.yaml").write_text("bansur:\n  guest: true\n")
     # The welcome trial carries inference only on the desktop's local backend.
     as_local_desktop_backend(monkeypatch)
     for var in ("OPENROUTER_API_KEY", "OPENAI_API_KEY", "ANTHROPIC_API_KEY", "BANSUR_API_KEY"):
