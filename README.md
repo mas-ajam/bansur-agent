@@ -2,7 +2,7 @@
   <img src="assets/banner.png" alt="Bansur Agent" width="100%">
 </p>
 
-# Bansur Agent ☤
+# Bansur Agent
 <p align="center">
   <a href="https://bansur-agent.pages.dev/">Bansur Agent</a> | <a href="https://bansur-agent.pages.dev/">Bansur Desktop</a>
 </p>
