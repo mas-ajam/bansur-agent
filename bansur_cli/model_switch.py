@@ -107,7 +107,9 @@ _BANSUR_MODEL_WARNING = (
 # false-positived on tool-capable local Modelfiles like ``bansur-brain:qwen3-14b-ctx16k``.
 #   match:    NousResearch/Hermes-3-Llama-3.1-70B, hermes-4-405b, openrouter/hermes3:70b
 #   no match: bansur-brain:qwen3-14b-ctx16k, qwen3:14b, claude-opus-4-6
-_BANSUR_BANSUR_NON_AGENTIC_RE = re.compile(r"(?:^|[/:])bansur[-_ ]?[34](?:[-_.:]|$)", re.IGNORECASE)
+# NOTE (fork): the pattern below intentionally matches the *external* "hermes"
+# model name family (Nous Hermes 3/4), not our own brand.
+_BANSUR_BANSUR_NON_AGENTIC_RE = re.compile(r"(?:^|[/:])hermes[-_ ]?[34](?:[-_.:]|$)", re.IGNORECASE)
 
 
 # Opaque proxy model IDs (Palantir Foundry: ``ri.language-model-service..language-model.<slug>``)
