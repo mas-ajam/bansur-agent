@@ -388,6 +388,11 @@ def _guest_sign_in(token_status, token_body):
         monkeypatch.setattr(anon_auth, "current_bansur_state", lambda: {
             "auth_method": anon_auth.ANON_AUTH_METHOD, "anon_token": "t", "portal_base_url": "https://p"})
         monkeypatch.setattr(anon_auth, "_anon_headers", dict)
+        # The promotion lives in a deployment with the free tier on: guests are opt-in.
+        from pathlib import Path
+        home = Path(os.environ["BANSUR_HOME"])
+        home.mkdir(parents=True, exist_ok=True)
+        (home / "config.yaml").write_text("bansur:\n  guest: true\n")
         replies = {
             "/api/oauth/device/code": (200, {"device_code": "d", "user_code": "U", "verification_uri": "https://p/v",
                                              "verification_uri_complete": "https://p/v?c=U", "expires_in": 30, "interval": 1}),

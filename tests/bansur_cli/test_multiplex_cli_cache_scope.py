@@ -224,6 +224,9 @@ def test_failed_guest_mint_only_suppresses_that_profile(homes, monkeypatch, tmp_
         return httpx.Client(transport=httpx.MockTransport(handler))
 
     monkeypatch.setattr(auth_bansur, "_bansur_http_client", client)
+    # The mint lives in a deployment with the free tier on: guests are opt-in.
+    for home in (a, b):
+        (home / "config.yaml").write_text("bansur:\n  guest: true\n", encoding="utf-8")
     with _Scoped(a), pytest.raises(Exception):
         anon.ensure_portal_identity(explicit=True, timeout_seconds=1)
     assert attempts == [str(a)]
