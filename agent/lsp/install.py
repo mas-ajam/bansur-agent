@@ -321,4 +321,4 @@ def detect_status(pkg: str) -> str:
     return "manual-only" if recipe and recipe.get("strategy") == "manual" else "missing"
 
 
-__all__ = ["INSTALL_RECIPES", "detect_status", "bansur_lsp_bin_dir", "try_install"]
+__all__ = ["INSTALL_RECIPES", "bansur_lsp_bin_dir", "detect_status", "try_install"]

@@ -471,7 +471,7 @@ _ROUTING_FILTER_DEFAULTS = (
     ("provider_require_parameters", False), ("provider_data_collection", ""),
 )
 
-_BANSUR_PROVIDERS = frozenset({"bansur", "bansur-portal", "bansur"})
+_BANSUR_PROVIDERS = frozenset({"bansur", "bansur-portal"})
 
 
 def _resolve_child_fallback_chain(parent_agent, routing_cfg: Any, pinned: bool) -> Optional[list[dict[str, Any]]]:

@@ -414,7 +414,7 @@ def _resolve_api_mode(agent, api_mode, provider_name, base_url):
         host.startswith("bedrock-runtime.") and base_url_host_matches(url, "amazonaws.com")
     ):
         agent.api_mode = "bedrock_converse"
-    elif agent.provider in {"bansur", "bansur-portal", "bansur"}:
+    elif agent.provider in {"bansur", "bansur-portal"}:
         # Portal is dual-wire (anthropic/* → Messages, else chat_completions); covers direct
         # AIAgent construction without a resolved runtime.
         from bansur_cli.providers import bansur_api_mode

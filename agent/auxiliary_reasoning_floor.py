@@ -79,7 +79,7 @@ def remember_reasoning_floor(
     _FLOORED_ROUTES.add((_route_key(provider, base_url), str(rejected_kwargs.get("model") or "")))
 
 
-_BANSUR_PROVIDERS = {"bansur", "bansur-portal", "bansur"}
+_BANSUR_PROVIDERS = {"bansur", "bansur-portal"}
 
 
 def _catalog_marks_mandatory(provider: Optional[str], base_url: Optional[str], model: Optional[str]) -> bool:

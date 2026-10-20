@@ -1196,7 +1196,7 @@ def try_recover_primary_transport(
     # Portal OpenAI-wire traffic rides aggregator retry infra (skip), but Portal Claude on native
     # Messages holds a local Anthropic client that needs the rebuild.
     if (
-        (agent.provider or "").strip().lower() in {"bansur", "bansur-portal", "bansur"}
+        (agent.provider or "").strip().lower() in {"bansur", "bansur-portal"}
         and getattr(agent, "api_mode", None) != "anthropic_messages"
     ):
         return False

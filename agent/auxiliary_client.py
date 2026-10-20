@@ -6547,7 +6547,7 @@ def _contains_profile_reasoning_fields(value: Any) -> bool:
     )
 
 
-_BANSUR_PROVIDER_NAMES = frozenset({"bansur", "bansur-portal", "bansur"})
+_BANSUR_PROVIDER_NAMES = frozenset({"bansur", "bansur-portal"})
 
 
 def _bansur_on_messages_wire(provider_norm: str, model: str) -> bool:
