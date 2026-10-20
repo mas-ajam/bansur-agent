@@ -7,7 +7,7 @@
   "author": "Bansur",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bansur/agent.git"
+    "url": "git+https://github.com/mas-ajam/bansur-agent.git"
   },
   "type": "module",
   "main": "dist/electron-main.mjs",

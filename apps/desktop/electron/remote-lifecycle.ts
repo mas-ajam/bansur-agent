@@ -204,7 +204,7 @@ async function locateBansur(ssh, remoteBansurPath) {
     //   - version checking: `<python> --version` printed "Python x.y.z" instead of
     //     the Bansur version, and
     //   - capability probing: `<python> serve --help` failed entirely.
-    // See https://github.com/bansur/agent/issues/74411
+    // See https://github.com/mas-ajam/bansur-agent/issues/74411
     return candidate
   }
 

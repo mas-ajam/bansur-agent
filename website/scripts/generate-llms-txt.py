@@ -305,12 +305,12 @@ def emit_llms_index() -> str:
     )
     lines.append("")
     lines.append(
-        "Install: `curl -fsSL https://raw.githubusercontent.com/bansur/"
+        "Install: `curl -fsSL https://raw.githubusercontent.com/mas-ajam/"
         "bansur-agent/main/scripts/install.sh | bash`  "
         "(Linux, macOS, WSL2)"
     )
     lines.append("")
-    lines.append("Repo: https://github.com/bansur/agent")
+    lines.append("Repo: https://github.com/mas-ajam/bansur-agent")
     lines.append("")
 
     for section, items in SECTIONS:

@@ -566,7 +566,7 @@ test(tools): añadir tests unitarios para file_operations
 
 ## Reportar Issues
 
-- Usa [GitHub Issues](https://github.com/bansur/agent/issues)
+- Usa [GitHub Issues](https://github.com/mas-ajam/bansur-agent/issues)
 - Incluye: SO, versión de Python, versión de Bansur (`bansur --version`), traza de error completa
 - Incluye pasos para reproducir
 - Verifica los issues existentes antes de crear duplicados

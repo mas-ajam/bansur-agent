@@ -72,9 +72,9 @@ UPDATE_TIMEOUT = 1200.0
 CMD_TIMEOUT = 300.0
 GATEWAY_READY_TIMEOUT = 240.0
 CANONICAL_URLS = (
-    "https://github.com/bansur/agent.git",
-    "https://github.com/bansur/agent",
-    "git@github.com:bansur/bansur-agent.git",
+    "https://github.com/mas-ajam/bansur-agent.git",
+    "https://github.com/mas-ajam/bansur-agent",
+    "git@github.com:mas-ajam/bansur-agent.git",
 )
 NEXT_MARKER = ".bansur-e2e-next"
 # Captured before any machine strips PATH: harness plumbing (serve.git, rev-parse) only.

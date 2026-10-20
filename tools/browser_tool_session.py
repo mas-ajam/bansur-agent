@@ -25,7 +25,7 @@ from tools import browser_tool_lightpanda_fallback as _lp
 from tools import browser_tool_real_profile as _real_profile
 from tools import browser_tool_snapshot as _snapshot
 
-_DOCKER_PULL = "docker pull ghcr.io/bansur/bansur-agent:latest"
+_DOCKER_PULL = "docker pull ghcr.io/mas-ajam/bansur-agent:latest"
 _CHROMIUM_INSTALL = "bansur pm install chromium (system libraries: npx playwright install-deps chromium)"
 _CHROMIUM_MISSING_DOCKER_HINT = ("Chromium browser is missing. You're running in Docker — pull the latest image "
                                  f"to get the bundled Chromium: {_DOCKER_PULL}")

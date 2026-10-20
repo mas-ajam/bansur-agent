@@ -28,13 +28,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bansur/agent.git"
+    "url": "git+https://github.com/mas-ajam/bansur-agent.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bansur/agent/issues"
+    "url": "https://github.com/mas-ajam/bansur-agent/issues"
   },
-  "homepage": "https://github.com/bansur/agent#readme",
+  "homepage": "https://github.com/mas-ajam/bansur-agent#readme",
   "devDependencies": {
     "@eslint/js": "9.39.5",
     "eslint": "10.12.0",

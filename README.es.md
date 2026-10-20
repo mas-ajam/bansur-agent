@@ -9,7 +9,7 @@
 <p align="center">
   <a href="https://bansur-agent.pages.dev/docs/"><img src="https://img.shields.io/badge/Docs-bansur--agent.bansur-agent.pages.dev-FFD700?style=for-the-badge" alt="Documentación"></a>
   <a href="https://discord.gg/bansur"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
-  <a href="https://github.com/bansur/agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/Licencia-MIT-green?style=for-the-badge" alt="Licencia: MIT"></a>
+  <a href="https://github.com/mas-ajam/bansur-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/Licencia-MIT-green?style=for-the-badge" alt="Licencia: MIT"></a>
   <a href="https://bansur-agent.pages.dev"><img src="https://img.shields.io/badge/Creado%20por-Bansur%20Research-blueviolet?style=for-the-badge" alt="Creado por Bansur"></a>
   <a href="README.md"><img src="https://img.shields.io/badge/Lang-English-blue?style=for-the-badge" alt="English"></a>
   <a href="README.zh-CN.md"><img src="https://img.shields.io/badge/Lang-中文-red?style=for-the-badge" alt="中文"></a>
@@ -42,7 +42,7 @@ curl -fsSL https://bansur-agent.pages.dev/install.sh | bash
 
 ### Windows (nativo, PowerShell)
 
-> **Nota:** En Windows nativo, Bansur funciona sin WSL — la CLI, el gateway, la TUI y las herramientas funcionan de forma nativa. Si prefieres usar WSL2, el comando de Linux/macOS de arriba también funciona allí. ¿Encontraste un error? Por favor [crea un issue](https://github.com/bansur/agent/issues).
+> **Nota:** En Windows nativo, Bansur funciona sin WSL — la CLI, el gateway, la TUI y las herramientas funcionan de forma nativa. Si prefieres usar WSL2, el comando de Linux/macOS de arriba también funciona allí. ¿Encontraste un error? Por favor [crea un issue](https://github.com/mas-ajam/bansur-agent/issues).
 
 Ejecuta esto en PowerShell:
 
@@ -192,7 +192,7 @@ de verificación están en [Development Setup](CONTRIBUTING.md#development-setup
 
 - 💬 [Discord](https://discord.gg/bansur)
 - 📚 [Skills Hub](https://agentskills.io)
-- 🐛 [Issues](https://github.com/bansur/agent/issues)
+- 🐛 [Issues](https://github.com/mas-ajam/bansur-agent/issues)
 - 🔌 [computer-use-linux](https://github.com/avifenesh/computer-use-linux) — Servidor MCP de control de escritorio Linux para Bansur y otros hosts MCP, con árboles de accesibilidad AT-SPI, entrada Wayland/X11, capturas de pantalla y targeting de ventanas del compositor.
 - 🔌 [BansurClaw](https://github.com/AaronWong1999/hermesclaw) — Puente WeChat comunitario: Ejecuta Bansur Agent y OpenClaw en la misma cuenta de WeChat.
 

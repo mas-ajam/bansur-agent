@@ -20,7 +20,7 @@ set -u
 # hygiene can't break the locked sync the way it used to before pm owned it.
 export UV_NO_CONFIG=1
 
-REPO_URL="${BANSUR_REPO_URL:-https://github.com/bansur/agent.git}"
+REPO_URL="${BANSUR_REPO_URL:-https://github.com/mas-ajam/bansur-agent.git}"
 BRANCH="main"
 INSTALL_COMMIT=""
 # The update channel to install: stable (the latest published release, the default for the
@@ -658,11 +658,11 @@ is_official_repo() {
 latest_stable_release() {
     local tag
     tag="$(curl -fsSL --connect-timeout 5 --max-time 20 -H 'Accept: application/vnd.github+json' \
-        https://api.github.com/repos/bansur/agent/releases/latest 2>/dev/null \
+        https://api.github.com/repos/mas-ajam/bansur-agent/releases/latest 2>/dev/null \
         | sed -n 's/^[[:space:]]*"tag_name":[[:space:]]*"\([^"]*\)".*/\1/p' | head -n 1)"
     if ! valid_stable_tag "$tag"; then
         tag="$(curl -fsSI --connect-timeout 5 --max-time 20 \
-            https://github.com/bansur/agent/releases/latest 2>/dev/null \
+            https://github.com/mas-ajam/bansur-agent/releases/latest 2>/dev/null \
             | tr -d '\r' | sed -n 's#^[Ll]ocation:.*/releases/tag/\([^/]*\)$#\1#p' | tail -n 1)"
     fi
     if ! valid_stable_tag "$tag"; then

@@ -5,7 +5,7 @@ REM ============================================================================
 REM This batch file launches the PowerShell installer for users running CMD.
 REM
 REM Usage:
-REM   curl -fsSL https://raw.githubusercontent.com/bansur/bansur-agent/main/scripts/install.cmd -o install.cmd && install.cmd && del install.cmd
+REM   curl -fsSL https://raw.githubusercontent.com/mas-ajam/bansur-agent/main/scripts/install.cmd -o install.cmd && install.cmd && del install.cmd
 REM
 REM Or if you're already in PowerShell, use the direct command instead:
 REM   iex (irm https://bansur-agent.pages.dev/install.ps1)

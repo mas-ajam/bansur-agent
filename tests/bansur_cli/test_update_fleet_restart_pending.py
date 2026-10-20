@@ -113,7 +113,7 @@ def _patch_update_deps(monkeypatch, tmp_path, run_side_effect):
     monkeypatch.setattr(
         bansur_main,
         "_get_origin_url",
-        lambda *a, **k: "https://github.com/bansur/agent.git",
+        lambda *a, **k: "https://github.com/mas-ajam/bansur-agent.git",
     )
     monkeypatch.setattr(update_cmd, "_is_fork", lambda *a, **k: False)
     monkeypatch.setattr(

@@ -18,7 +18,7 @@ Bansur discovers memory providers from four sources, in this precedence order:
 
 | Source | Location | Notes |
 |---|---|---|
-| Bundled | `plugins/memory/<name>/` | Ships with Bansur. Closed to new providers — see [CONTRIBUTING](https://github.com/bansur/agent/blob/main/CONTRIBUTING.md). |
+| Bundled | `plugins/memory/<name>/` | Ships with Bansur. Closed to new providers — see [CONTRIBUTING](https://github.com/mas-ajam/bansur-agent/blob/main/CONTRIBUTING.md). |
 | User | `$BANSUR_HOME/plugins/<name>/` | Dropped in by the user, per profile. |
 | Project | `./.bansur/plugins/<name>/` | Opt-in via `BANSUR_ENABLE_PROJECT_PLUGINS=1`. |
 | Package | `bansur_agent.memory_providers` entry point | Distribution supplied by the installation owner; nothing to copy. |

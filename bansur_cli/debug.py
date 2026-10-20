@@ -638,7 +638,7 @@ def _run_debug_share_bansur(args, *, log_lines: int, redact: bool) -> None:
     print("\nShare this private link with the Bansur team — only Bansur staff "
           "(via Google login) can open it.\n"
           "\nPick up the discussion in:\n"
-          "  GitHub Issues        https://github.com/bansur/agent/issues\n"
+          "  GitHub Issues        https://github.com/mas-ajam/bansur-agent/issues\n"
           "  Bansur Portal Support  https://portal.bansur-agent.pages.dev/help\n"
           "  Discord              https://discord.gg/bansur")
 

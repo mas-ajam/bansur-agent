@@ -14,7 +14,7 @@ from bansur_cli.update_channel import STABLE_TAG_RE, is_canary_tag
 
 logger = logging.getLogger(__name__)
 _PUBLIC_BASE = "https://bansur-assets.bansur-agent.pages.dev"
-OFFICIAL_REPOSITORY = "bansur/bansur-agent"
+OFFICIAL_REPOSITORY = "mas-ajam/bansur-agent"
 _GITHUB_ORIGIN = re.compile(
     r"^(?:https://github\.com/|git@github\.com:|ssh://git@github\.com/)"
     r"([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+?)(?:\.git)?/?$", re.IGNORECASE,

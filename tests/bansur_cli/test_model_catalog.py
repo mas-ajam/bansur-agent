@@ -140,7 +140,7 @@ class TestFallbackChain:
 
     PRIMARY = "https://bansur-agent.pages.dev/docs/api/model-catalog.json"
     FALLBACK = (
-        "https://raw.githubusercontent.com/bansur/bansur-agent"
+        "https://raw.githubusercontent.com/mas-ajam/bansur-agent"
         "/main/website/static/api/model-catalog.json"
     )
 

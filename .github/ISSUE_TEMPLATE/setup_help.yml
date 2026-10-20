@@ -12,7 +12,7 @@ body:
         - Run `bansur debug share` and paste the links in the Debug Report section below
         - If you're in a chat session, you can use `/debug` instead — it does the same thing
         - Try `bansur update` to get the latest version
-        - Check the [README troubleshooting section](https://github.com/bansur/agent#troubleshooting)
+        - Check the [README troubleshooting section](https://github.com/mas-ajam/bansur-agent#troubleshooting)
         - For general questions, consider the [Bansur Discord](https://discord.gg/bansur) for faster help
 
   - type: textarea

@@ -511,7 +511,7 @@ A few situations stop with a message rather than carry on, because carrying on c
 bansur --version
 ```
 
-Compare against the latest release at the [GitHub releases page](https://github.com/bansur/agent/releases).
+Compare against the latest release at the [GitHub releases page](https://github.com/mas-ajam/bansur-agent/releases).
 
 ### Updating from Messaging Platforms
 

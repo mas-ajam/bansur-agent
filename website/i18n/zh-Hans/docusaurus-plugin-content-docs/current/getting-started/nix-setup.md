@@ -61,7 +61,7 @@ bansur chat
 <summary><strong>从本地克隆构建</strong></summary>
 
 ```bash
-git clone https://github.com/bansur/agent.git
+git clone https://github.com/mas-ajam/bansur-agent.git
 cd bansur-agent
 nix build
 ./result/bin/bansur setup

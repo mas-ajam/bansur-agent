@@ -212,7 +212,7 @@ stdenv.mkDerivation {
 
   meta = with lib; {
     description = "Native Electron desktop shell for Bansur Agent";
-    homepage = "https://github.com/bansur/agent";
+    homepage = "https://github.com/mas-ajam/bansur-agent";
     license = licenses.mit;
     platforms = platforms.unix;
     mainProgram = "bansur-desktop";

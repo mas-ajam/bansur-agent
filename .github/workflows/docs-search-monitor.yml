@@ -31,7 +31,7 @@ concurrency:
 
 jobs:
   probe:
-    if: github.repository == 'bansur/bansur-agent'
+    if: github.repository == 'mas-ajam/bansur-agent'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

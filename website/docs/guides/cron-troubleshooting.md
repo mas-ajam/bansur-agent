@@ -224,7 +224,7 @@ If you've worked through this guide and the issue persists:
 
 1. Run the job with `bansur cron run <job_id>` (fires on next gateway tick) and watch for errors in the chat output
 2. Check `~/.bansur/logs/agent.log` for scheduler messages and `~/.bansur/logs/errors.log` for warnings
-3. Open an issue at [github.com/bansur/agent](https://github.com/bansur/agent) with:
+3. Open an issue at [github.com/mas-ajam/bansur-agent](https://github.com/mas-ajam/bansur-agent) with:
    - The job ID and schedule
    - The delivery target
    - What you expected vs. what happened

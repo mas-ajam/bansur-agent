@@ -1,6 +1,6 @@
 """Tests for get_bansur_home() profile-mode fallback warning.
 
-Regression test for https://github.com/bansur/agent/issues/18594.
+Regression test for https://github.com/mas-ajam/bansur-agent/issues/18594.
 
 When BANSUR_HOME is unset but an active_profile file indicates a non-default
 profile is active, get_bansur_home() should:

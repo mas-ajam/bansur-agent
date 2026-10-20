@@ -80,7 +80,7 @@ def _post_setup_agent_browser(post_setup_key: str) -> None:
         if docker and post_setup_key == "agent_browser" and not _chromium_installed():
             _print_warning("    Chromium is missing but you're running in Docker.")
             _info_lines("Pull the latest image to get the bundled Chromium:",
-                        "  docker pull ghcr.io/bansur/bansur-agent:latest")
+                        "  docker pull ghcr.io/mas-ajam/bansur-agent:latest")
         return
 
     try:

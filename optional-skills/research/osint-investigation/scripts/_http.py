@@ -13,7 +13,7 @@ import urllib.request
 
 DEFAULT_UA = (
     "bansur-osint-investigation/0.2 "
-    "(+https://github.com/bansur/agent; "
+    "(+https://github.com/mas-ajam/bansur-agent; "
     "set BANSUR_OSINT_UA env var to identify yourself per "
     "Wikimedia / SEC fair-use guidance)"
 )

@@ -6,7 +6,7 @@ scope for vulnerability reports.
 
 ## 1. Reporting a Vulnerability
 
-Report privately via [GitHub Security Advisories](https://github.com/bansur/agent/security/advisories/new)
+Report privately via [GitHub Security Advisories](https://github.com/mas-ajam/bansur-agent/security/advisories/new)
 or **security@bansur-agent.pages.dev**. Do not open public issues for
 security vulnerabilities. **Bansur Agent does not operate a bug
 bounty program.**

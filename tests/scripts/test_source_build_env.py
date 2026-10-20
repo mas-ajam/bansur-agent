@@ -31,7 +31,7 @@ def _stamp_probe(tmp_path, shell):
     env = dict(os.environ, HOME=str(tmp_path), BANSUR_HOME=str(tmp_path / "home"),
                GIT_CONFIG_GLOBAL=str(tmp_path / "gitconfig"), GIT_CONFIG_NOSYSTEM="1")
     (tmp_path / "gitconfig").write_text('[url "file:///staged/serve.git"]\n'
-                                      '\tinsteadOf = https://github.com/bansur/agent.git\n',
+                                      '\tinsteadOf = https://github.com/mas-ajam/bansur-agent.git\n',
                                       encoding="utf-8")
 
     def git(*args):
@@ -153,7 +153,7 @@ if ($LASTEXITCODE) { exit $LASTEXITCODE }
         assert not overrides.keys() & child.keys()
         assert child["GIT_CONFIG_GLOBAL"] == env["GIT_CONFIG_GLOBAL"]
         redirect = subprocess.run(["git", "ls-remote", "--get-url",
-                                   "https://github.com/bansur/agent.git"], env=child,
+                                   "https://github.com/mas-ajam/bansur-agent.git"], env=child,
                                   cwd=tmp_path, check=True, capture_output=True, text=True, timeout=30)
         assert redirect.stdout.strip() == "file:///staged/serve.git"
         assert child["BANSUR_HOME"] == env["BANSUR_HOME"]

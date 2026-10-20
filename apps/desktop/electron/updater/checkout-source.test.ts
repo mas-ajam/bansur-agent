@@ -110,7 +110,7 @@ function channelRecord(channel: 'stable' | 'canary', sequence: number): FixtureR
   return {
     schema: 1,
     name: channel,
-    repository: 'bansur/bansur-agent',
+    repository: 'mas-ajam/bansur-agent',
     policy: channel === 'stable' ? 'stable-release' : 'canary-release',
     state: 'active',
     revision: 1,
@@ -160,7 +160,7 @@ function buildManifest(
       schema: 1,
       buildId: id,
       channel,
-      repository: 'bansur/bansur-agent',
+      repository: 'mas-ajam/bansur-agent',
       commit: sha,
       sourceVersion: tag.replace(/^v/, '').split('+')[0],
       releaseTag: tag,
@@ -258,16 +258,16 @@ it('carries each install channel from Python publication checks into the source 
         })
       )
       responses.set(`/${manifestKey(channel)}`, body)
-      responses.set(`/repos/bansur/bansur-agent/releases/tags/${tags[channel]}`, {
+      responses.set(`/repos/mas-ajam/bansur-agent/releases/tags/${tags[channel]}`, {
         tag_name: tags[channel],
         draft: false,
         prerelease: channel === 'canary'
       })
-      responses.set(`/repos/bansur/bansur-agent/commits/${tags[channel]}`, { sha })
+      responses.set(`/repos/mas-ajam/bansur-agent/commits/${tags[channel]}`, { sha })
     }
 
     // Stable IS the latest published GitHub release; no R2 record is consulted for it.
-    responses.set('/repos/bansur/bansur-agent/releases/latest', {
+    responses.set('/repos/mas-ajam/bansur-agent/releases/latest', {
       tag_name: tags.stable,
       draft: false,
       prerelease: false

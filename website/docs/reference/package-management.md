@@ -82,7 +82,7 @@ virtual environments. The prepared result binds the source, target and paths;
 missing or changed inputs fail consumption rather than trigger a download.
 Reprepare after a move or input change. Signing and notarization can still use
 the network. See the
-[desktop build guide](https://github.com/bansur/agent/blob/main/apps/desktop/BUILDING.md)
+[desktop build guide](https://github.com/mas-ajam/bansur-agent/blob/main/apps/desktop/BUILDING.md)
 for native compiler requirements and release verification limits.
 
 A packaged application's base payload is immutable. Bansur runs its backend
@@ -238,7 +238,7 @@ interpreter such as Nix Python. No `CC` default is needed for the current pin.
 Clone the repository and select your branch before preparing dependencies:
 
 ```bash
-git clone https://github.com/bansur/agent.git
+git clone https://github.com/mas-ajam/bansur-agent.git
 cd bansur-agent
 ```
 
@@ -396,7 +396,7 @@ npm run dev --workspace apps/desktop
 The website is separate: `npm ci --prefix website`, then
 `npm run build:fast --prefix website`. PM activation supplies tools, not these
 `node_modules` directories or built assets. Native desktop builds have additional
-requirements in the [desktop build guide](https://github.com/bansur/agent/blob/main/apps/desktop/BUILDING.md).
+requirements in the [desktop build guide](https://github.com/mas-ajam/bansur-agent/blob/main/apps/desktop/BUILDING.md).
 
 ### Refresh dependencies without changing branches
 
@@ -429,7 +429,7 @@ before starting another Python process.
 ### Syncing after you edit pyproject.toml
 
 1. Edit `pyproject.toml`. Pin every dependency as the
-   [Dependency Pinning Policy](https://github.com/bansur/agent/blob/main/pm/AGENTS.md#dependency-pinning-policy)
+   [Dependency Pinning Policy](https://github.com/mas-ajam/bansur-agent/blob/main/pm/AGENTS.md#dependency-pinning-policy)
    requires. Express platform limits with PEP 508 markers, or gate a whole
    extra in `[tool.bansur.extras-platforms]`.
 2. Relock:
@@ -559,7 +559,7 @@ not substitutes for an installed application's update mechanism.
 
 The complete desktop builder also builds the JavaScript surfaces, generates
 launchers, and invokes native packaging. Maintainers can read
-[Building the Desktop Installers](https://github.com/bansur/agent/blob/main/apps/desktop/BUILDING.md).
+[Building the Desktop Installers](https://github.com/mas-ajam/bansur-agent/blob/main/apps/desktop/BUILDING.md).
 
 ## Network retries
 

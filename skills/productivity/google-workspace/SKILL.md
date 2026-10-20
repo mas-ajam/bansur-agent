@@ -13,7 +13,7 @@ required_credential_files:
 metadata:
   bansur:
     tags: [Google, Gmail, Calendar, Drive, Sheets, Docs, Contacts, Email, OAuth]
-    homepage: https://github.com/bansur/agent
+    homepage: https://github.com/mas-ajam/bansur-agent
     related_skills: [himalaya]
 ---
 

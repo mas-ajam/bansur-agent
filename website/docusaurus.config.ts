@@ -83,7 +83,7 @@ const config: Config = {
         docs: {
           routeBasePath: '/',  // Docs at the root of /docs/
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/bansur/agent/edit/main/website/',
+          editUrl: 'https://github.com/mas-ajam/bansur-agent/edit/main/website/',
           // Relative `.md` links (readable on GitHub, #114428) must also resolve
           // across the zh-Hans fallback boundary; see src/remark/relativeDocLinks.js.
           beforeDefaultRemarkPlugins: [[relativeDocLinks, {siteDir: __dirname}]],
@@ -161,7 +161,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/bansur/agent',
+          href: 'https://github.com/mas-ajam/bansur-agent',
           label: 'GitHub',
           position: 'right',
         },
@@ -188,7 +188,7 @@ const config: Config = {
           title: 'Community',
           items: [
             { label: 'Discord', href: 'https://discord.gg/bansur' },
-            { label: 'GitHub Issues', href: 'https://github.com/bansur/agent/issues' },
+            { label: 'GitHub Issues', href: 'https://github.com/mas-ajam/bansur-agent/issues' },
             { label: 'Skills Hub', href: 'https://agentskills.io' },
           ],
         },
@@ -196,7 +196,7 @@ const config: Config = {
           title: 'More',
           items: [
             { label: 'Desktop Download', href: 'https://bansur-agent.pages.dev/' },
-            { label: 'GitHub', href: 'https://github.com/bansur/agent' },
+            { label: 'GitHub', href: 'https://github.com/mas-ajam/bansur-agent' },
             { label: 'Bansur', href: 'https://bansur-agent.pages.dev' },
           ],
         },

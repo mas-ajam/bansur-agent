@@ -26,7 +26,7 @@ import { ExternalLink, Loader2Icon, Lock } from '@/lib/icons'
 import { $sendDiagnostics, confirmSendDiagnostics, dismissSendDiagnostics } from '@/store/send-diagnostics'
 
 const SUPPORT_LINKS = [
-  { key: 'github', url: 'https://github.com/bansur/agent/issues' },
+  { key: 'github', url: 'https://github.com/mas-ajam/bansur-agent/issues' },
   { key: 'portal', url: 'https://portal.bansur-agent.pages.dev/help' },
   { key: 'discord', url: 'https://discord.gg/bansur' }
 ] as const

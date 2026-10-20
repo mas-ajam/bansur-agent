@@ -2,7 +2,7 @@
 
 Renders any content as colored ASCII character video. Audio, video, images, text, or pure math in, MP4/GIF/PNG sequence out. Full RGB color per character cell, 1080p 24fps default. No GPU.
 
-Built for [Bansur Agent](https://github.com/bansur/agent). Usable in any coding agent. Canonical source lives here; synced to [`bansur/bansur-agent/skills/creative/ascii-video`](https://github.com/bansur/agent/tree/main/skills/creative/ascii-video) via PR.
+Built for [Bansur Agent](https://github.com/mas-ajam/bansur-agent). Usable in any coding agent. Canonical source lives here; synced to [`bansur/bansur-agent/skills/creative/ascii-video`](https://github.com/mas-ajam/bansur-agent/tree/main/skills/creative/ascii-video) via PR.
 
 ## What this is
 

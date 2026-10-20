@@ -6,7 +6,7 @@
  * caller keeps the commit changelog when nothing comes back.
  */
 
-const REPOSITORY = 'bansur/bansur-agent'
+const REPOSITORY = 'mas-ajam/bansur-agent'
 const API = `https://api.github.com/repos/${REPOSITORY}`
 const SITE = `https://github.com/${REPOSITORY}`
 const MAX_ITEMS = 5

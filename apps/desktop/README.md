@@ -1,10 +1,10 @@
 # Bansur Desktop ☤
 
 <p align="center">
-  <a href="https://github.com/bansur/agent/releases"><img src="https://img.shields.io/badge/Download-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-FFD700?style=for-the-badge" alt="Download"></a>
+  <a href="https://github.com/mas-ajam/bansur-agent/releases"><img src="https://img.shields.io/badge/Download-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-FFD700?style=for-the-badge" alt="Download"></a>
   <a href="https://bansur-agent.pages.dev/docs/"><img src="https://img.shields.io/badge/Docs-bansur--agent.bansur-agent.pages.dev-FFD700?style=for-the-badge" alt="Documentation"></a>
   <a href="https://discord.gg/bansur"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
-  <a href="https://github.com/bansur/agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
+  <a href="https://github.com/mas-ajam/bansur-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
 </p>
 
 **The native desktop app for [Bansur Agent](../../README.md) — the self-improving AI agent from [Bansur](https://bansur-agent.pages.dev).** Same agent, same skills, same memory as the CLI and gateway, in a polished native window — chat with streaming tool output, side-by-side previews, a file browser, voice, and settings, no terminal required. Available for **macOS, Windows, and Linux**.
@@ -260,7 +260,7 @@ Remove-Item -Recurse -Force "$env:LOCALAPPDATA\bansur\bansur-agent\venv"
 
 - 💬 [Discord](https://discord.gg/bansur)
 - 📖 [Documentation](https://bansur-agent.pages.dev/docs/)
-- 🐛 [Issues](https://github.com/bansur/agent/issues)
+- 🐛 [Issues](https://github.com/mas-ajam/bansur-agent/issues)
 
 ---
 

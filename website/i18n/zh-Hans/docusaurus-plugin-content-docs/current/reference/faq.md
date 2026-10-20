@@ -856,6 +856,6 @@ bansur chat -q "hello" --model anthropic/claude-opus-4.7
 
 如果您的问题未在此处涵盖：
 
-1. **搜索现有 issue：** [GitHub Issues](https://github.com/bansur/agent/issues)
+1. **搜索现有 issue：** [GitHub Issues](https://github.com/mas-ajam/bansur-agent/issues)
 2. **向社区提问：** [Bansur Discord](https://discord.gg/bansur)
 3. **提交 bug 报告：** 请包含您的操作系统、Python 版本（`python3 --version`）、Bansur 版本（`bansur --version`）以及完整的错误信息

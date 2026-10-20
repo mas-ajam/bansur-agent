@@ -91,7 +91,7 @@ The `default` package adds ~700 MB to the closure. If you only need messaging pl
 <summary><strong>Running from a local clone</strong></summary>
 
 ```bash
-git clone https://github.com/bansur/agent.git
+git clone https://github.com/mas-ajam/bansur-agent.git
 cd bansur-agent
 nix develop
 bansur setup

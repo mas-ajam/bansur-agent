@@ -29,8 +29,8 @@
 
 set -euo pipefail
 
-OFFICIAL_HTTPS="https://github.com/bansur/agent.git"
-OFFICIAL_SSH="git@github.com:bansur/bansur-agent.git"
+OFFICIAL_HTTPS="https://github.com/mas-ajam/bansur-agent.git"
+OFFICIAL_SSH="git@github.com:mas-ajam/bansur-agent.git"
 DEFAULT_SOURCE="https://github.com/ethernet8023/hermes-agent.git"
 
 SUBCMD=""

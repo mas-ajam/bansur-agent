@@ -27,7 +27,7 @@ describe('hub-iframe-policy predicates', () => {
   })
 
   it('delegates only http/https/mailto external URLs', () => {
-    expect(isBansurHubExternalUrl('https://github.com/bansur/agent')).toBe(true)
+    expect(isBansurHubExternalUrl('https://github.com/mas-ajam/bansur-agent')).toBe(true)
     expect(isBansurHubExternalUrl('http://example.com/docs')).toBe(true)
     expect(isBansurHubExternalUrl('mailto:support@example.com')).toBe(true)
 
@@ -47,7 +47,7 @@ describe('hub-iframe-policy predicates', () => {
 })
 
 describe('createWindowOpenHandler trusted-hub delegation', () => {
-  const baseDetails = { url: 'https://github.com/bansur/agent' }
+  const baseDetails = { url: 'https://github.com/mas-ajam/bansur-agent' }
 
   it('still denies artifact frames (opaque origin) with NO external open', () => {
     const openExternalUrl = vi.fn()
@@ -70,7 +70,7 @@ describe('createWindowOpenHandler trusted-hub delegation', () => {
     })
 
     expect(handler(baseDetails)).toEqual({ action: 'deny' })
-    expect(openExternalUrl).toHaveBeenCalledExactlyOnceWith('https://github.com/bansur/agent')
+    expect(openExternalUrl).toHaveBeenCalledExactlyOnceWith('https://github.com/mas-ajam/bansur-agent')
   })
 
   it('delegates from the fallback (GitHub Pages) hub origin too', () => {

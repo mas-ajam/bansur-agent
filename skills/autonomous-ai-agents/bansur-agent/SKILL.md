@@ -8,7 +8,7 @@ platforms: [linux, macos, windows]
 metadata:
   bansur:
     tags: [bansur, setup, configuration, multi-agent, spawning, cli, gateway, bots, bot-mode, features, themes, skins, desktop-plugins, tui-widgets, petdex, development]
-    homepage: https://github.com/bansur/agent
+    homepage: https://github.com/mas-ajam/bansur-agent
     related_skills: [claude-code, codex, opencode]
 ---
 
@@ -38,7 +38,7 @@ Good verification targets, cheapest first:
 
 - **Every shipped feature, one line each: https://bansur-agent.pages.dev/docs/llms.txt.** Start here for any "can Bansur do X?" or "how do I do X?" — it indexes the entire documentation set with a link to the page that answers. It is generated from the docs tree on every build, so it is never behind the product. Fetch it with `web_extract`, or `curl -s https://bansur-agent.pages.dev/docs/llms.txt` when web tools are off. The whole documentation set in one file is at `/docs/llms-full.txt`.
 - CLI commands: `bansur --help`, `bansur <command> --help`, and `bansur_cli/main.py`
-- Source tree: https://github.com/bansur/agent
+- Source tree: https://github.com/mas-ajam/bansur-agent
 
 Never answer "Bansur can't do that" from memory. Bansur ships far more than this skill body describes, and the index exists so a negative answer is always checkable.
 

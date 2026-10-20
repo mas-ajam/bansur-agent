@@ -15,7 +15,7 @@ Bansur isn't just a CLI tool. You can import `AIAgent` directly and use it progr
 Clone Bansur and prepare its source environment through PM. The Bash recipe is:
 
 ```bash
-git clone https://github.com/bansur/agent.git
+git clone https://github.com/mas-ajam/bansur-agent.git
 cd bansur-agent
 source ./activate
 ```

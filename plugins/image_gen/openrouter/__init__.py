@@ -172,7 +172,7 @@ _IMAGE_API_INTS = (
 _ATTRIBUTION_HEADERS = {
     "Content-Type": "application/json",
     # OpenRouter attribution headers (harmless against Bansur Portal).
-    "HTTP-Referer": "https://github.com/bansur/agent",
+    "HTTP-Referer": "https://github.com/mas-ajam/bansur-agent",
     "X-Title": "Bansur Agent",
 }
 

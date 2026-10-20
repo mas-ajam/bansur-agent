@@ -8,7 +8,7 @@ import { DirectiveContent } from './directive-text'
 
 const desktopWindow = window as unknown as { bansurDesktop?: Window['bansurDesktop'] }
 
-const PR_URL = 'https://github.com/bansur/agent/pull/107950'
+const PR_URL = 'https://github.com/mas-ajam/bansur-agent/pull/107950'
 
 function installDesktopBridge() {
   const openExternal = vi.fn().mockResolvedValue(undefined)
