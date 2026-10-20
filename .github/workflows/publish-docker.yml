@@ -1,0 +1,216 @@
+name: Publish Docker images (manual)
+
+# Maintainer-run Docker publication that deliberately bypasses the stable
+# release pipeline (scripts/release.py + stable-release.yml). That pipeline
+# stages its manifests and receipts on Cloudflare R2; this project does not
+# operate an R2 account, so the Docker images — the one release artifact the
+# pipeline would have produced for Docker Hub / GHCR — are published here
+# instead, at zero infrastructure cost.
+#
+# The build mirrors docker.yml exactly (same Dockerfile, install stamp,
+# per-arch native runners, digest-first push, cache scopes) and the alias
+# set mirrors scripts/releases/docker.py: for each variant, the versioned
+# tag plus the `stable` and `latest` aliases are moved to the new manifest
+# list (desktop carries the `-desktop` suffix on every tag).
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version to stamp and tag, without the leading v (e.g. 1.0.0)"
+        required: true
+        type: string
+        default: "1.0.0"
+      ref:
+        description: "Git tag or commit to build (the released source)"
+        required: true
+        type: string
+        default: "v1.0.0"
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: publish-docker-${{ inputs.version }}
+  cancel-in-progress: false
+
+env:
+  IMAGE_NAME: bansur/bansur-agent
+  GHCR_IMAGE: ghcr.io/mas-ajam/bansur-agent
+
+jobs:
+  build:
+    name: Build and push by digest (${{ matrix.variant }}/${{ matrix.arch }})
+    strategy:
+      fail-fast: false
+      matrix:
+        arch: [amd64, arm64]
+        variant: [slim, desktop]
+        include:
+          - arch: amd64
+            runner: ubuntu-24.04
+            platform: linux/amd64
+          - arch: arm64
+            runner: ubuntu-24.04-arm
+            platform: linux/arm64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 60
+    steps:
+      - name: Checkout released source
+        uses: actions/checkout@f548e57e544e1ff5a4c46bf1e1b8685f8e4a348a # v7.0.1
+        with:
+          ref: ${{ inputs.ref }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.14"
+
+      - name: Write install stamp
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: |
+          python3 scripts/write_install_stamp.py --output install-stamp.json \
+            --distribution docker --update-mechanism external --source ci \
+            --commit "$(git rev-parse HEAD)" \
+            --base-version "$RELEASE_VERSION" --display-version "$RELEASE_VERSION" --distance 0
+
+      - name: Reject profile exports in the build context
+        run: python3 scripts/ci/check_profile_archive_boundary.py
+
+      - name: Set up Docker Buildx
+        id: buildx
+        continue-on-error: true
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      - name: Set up Docker Buildx (retry)
+        if: steps.buildx.outcome == 'failure'
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121 # v4.1.0
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Log in to GHCR
+        uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121 # v4.1.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push to Docker Hub by digest (${{ matrix.variant }}/${{ matrix.arch }})
+        id: push-hub
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          file: Dockerfile
+          platforms: ${{ matrix.platform }}
+          build-args: |
+            BANSUR_BOT_DESKTOP=${{ matrix.variant == 'desktop' && '1' || '0' }}
+          outputs: type=image,name=${{ env.IMAGE_NAME }},push-by-digest=true,name-canonical=true,push=true
+          cache-from: type=gha,scope=docker-${{ matrix.arch }}
+          cache-to: ${{ matrix.variant == 'slim' && format('type=gha,mode=max,scope=docker-{0}', matrix.arch) || '' }}
+
+      - name: Push to GHCR by digest (${{ matrix.variant }}/${{ matrix.arch }})
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: .
+          file: Dockerfile
+          platforms: ${{ matrix.platform }}
+          build-args: |
+            BANSUR_BOT_DESKTOP=${{ matrix.variant == 'desktop' && '1' || '0' }}
+          outputs: type=image,name=${{ env.GHCR_IMAGE }},push-by-digest=true,name-canonical=true,push=true
+          cache-from: type=gha,scope=docker-${{ matrix.arch }}
+
+      - name: Export digest
+        env:
+          DIGEST: ${{ steps.push-hub.outputs.digest }}
+        run: |
+          mkdir -p digests
+          printf '%s' "$DIGEST" > "digests/${{ matrix.arch }}.digest"
+
+      - name: Upload digest artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: digest-${{ matrix.variant }}-${{ matrix.arch }}
+          path: digests/
+          if-no-files-found: error
+          retention-days: 7
+
+  merge:
+    name: Assemble versioned manifests (${{ matrix.variant }})
+    needs: [build]
+    strategy:
+      fail-fast: false
+      matrix:
+        variant: [slim, desktop]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Download digests
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          pattern: digest-${{ matrix.variant }}-*
+          path: /tmp/digests
+          merge-multiple: true
+
+      - name: Set up Docker Buildx
+        id: buildx
+        continue-on-error: true
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      - name: Set up Docker Buildx (retry)
+        if: steps.buildx.outcome == 'failure'
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121 # v4.1.0
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Log in to GHCR
+        uses: docker/login-action@4907a6ddec9925e35a0a9e82d7399ccc52663121 # v4.1.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create manifest lists and aliases
+        working-directory: /tmp/digests
+        env:
+          VERSION: ${{ inputs.version }}
+          VARIANT: ${{ matrix.variant }}
+        run: |
+          set -euo pipefail
+          suffix=""
+          [ "$VARIANT" = desktop ] && suffix="-desktop"
+          amd64_digest="$(cat amd64.digest)"
+          arm64_digest="$(cat arm64.digest)"
+          for image in "$IMAGE_NAME" "$GHCR_IMAGE"; do
+            for i in 1 2 3; do
+              if docker buildx imagetools create \
+                -t "${image}:v${VERSION}${suffix}" \
+                -t "${image}:stable${suffix}" \
+                -t "${image}:latest${suffix}" \
+                "${image}@${amd64_digest}" "${image}@${arm64_digest}"; then
+                break
+              fi
+              if [ "$i" = 3 ]; then echo "::error::imagetools create failed for ${image} after 3 attempts"; exit 1; fi
+              echo "::warning::imagetools create failed for ${image} (attempt $i); retrying in 20s"
+              sleep 20
+            done
+          done
+
+      - name: Inspect published manifests
+        env:
+          VERSION: ${{ inputs.version }}
+          VARIANT: ${{ matrix.variant }}
+        run: |
+          suffix=""
+          [ "$VARIANT" = desktop ] && suffix="-desktop"
+          docker buildx imagetools inspect "${IMAGE_NAME}:v${VERSION}${suffix}"
+          docker buildx imagetools inspect "${GHCR_IMAGE}:v${VERSION}${suffix}"
