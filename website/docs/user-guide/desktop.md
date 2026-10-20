@@ -476,7 +476,7 @@ The connection has two halves: on the backend you protect it with an **auth prov
 - **OAuth (Bansur Portal) — preferred for anything reachable beyond your own machine.** Logins are verified against your Bansur account, so this is the option suitable for a VPS, a public host, or any remote backend. Register the dashboard with `bansur dashboard register` (or the Portal [`/local-dashboards`](https://portal.bansur-agent.pages.dev/local-dashboards) page) to provision its OAuth client, then sign in from the app with **Sign in with Bansur**. A self-hosted OIDC provider works the same way if you run your own identity provider.
 - **Username/password — local / trusted-network use only.** The simplest option when the backend is on the same trusted LAN or reachable only over a VPN (e.g. Tailscale). It protects a single shared credential with no external identity provider, so **do not use it for a dashboard exposed to the public internet** — reach for OAuth there instead.
 
-The rest of this section shows the username/password path because it's the quickest to stand up on a trusted network; for the OAuth path see [Web Dashboard → Default provider: Bansur](./features/web-dashboard.md#default-provider-bansur-research).
+The rest of this section shows the username/password path because it's the quickest to stand up on a trusted network; for the OAuth path see [Web Dashboard → Default provider: Bansur](./features/web-dashboard.md#default-provider-bansur).
 
 ### On the backend (the remote machine)
 

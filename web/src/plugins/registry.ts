@@ -19,23 +19,23 @@ import React, {
 } from "react";
 import { api, fetchJSON, authedFetch, buildWsUrl, buildWsAuthParam } from "@/lib/api";
 import { cn, timeAgo, isoTimeAgo } from "@/lib/utils";
-import { Badge } from "@bansur-research/ui/ui/components/badge";
-import { Button } from "@bansur-research/ui/ui/components/button";
-import { Checkbox } from "@bansur-research/ui/ui/components/checkbox";
-import { ConfirmDialog } from "@bansur-research/ui/ui/components/confirm-dialog";
+import { Badge } from "@nous-research/ui/ui/components/badge";
+import { Button } from "@nous-research/ui/ui/components/button";
+import { Checkbox } from "@nous-research/ui/ui/components/checkbox";
+import { ConfirmDialog } from "@nous-research/ui/ui/components/confirm-dialog";
 import {
   Dialog, DialogClose, DialogContent, DialogDescription,
   DialogFooter, DialogHeader, DialogTitle,
-} from "@bansur-research/ui/ui/components/dialog";
-import { Toast } from "@bansur-research/ui/ui/components/toast";
-import { useConfirmDelete } from "@bansur-research/ui/hooks/use-confirm-delete";
-import { useToast } from "@bansur-research/ui/hooks/use-toast";
-import { Select, SelectOption } from "@bansur-research/ui/ui/components/select";
-import { Card, CardHeader, CardTitle, CardContent } from "@bansur-research/ui/ui/components/card";
-import { Input } from "@bansur-research/ui/ui/components/input";
-import { Label } from "@bansur-research/ui/ui/components/label";
-import { Separator } from "@bansur-research/ui/ui/components/separator";
-import { Tabs, TabsList, TabsTrigger } from "@bansur-research/ui/ui/components/tabs";
+} from "@nous-research/ui/ui/components/dialog";
+import { Toast } from "@nous-research/ui/ui/components/toast";
+import { useConfirmDelete } from "@nous-research/ui/hooks/use-confirm-delete";
+import { useToast } from "@nous-research/ui/hooks/use-toast";
+import { Select, SelectOption } from "@nous-research/ui/ui/components/select";
+import { Card, CardHeader, CardTitle, CardContent } from "@nous-research/ui/ui/components/card";
+import { Input } from "@nous-research/ui/ui/components/input";
+import { Label } from "@nous-research/ui/ui/components/label";
+import { Separator } from "@nous-research/ui/ui/components/separator";
+import { Tabs, TabsList, TabsTrigger } from "@nous-research/ui/ui/components/tabs";
 import { useI18n } from "@/i18n";
 import { clearPluginSlots, registerSlot, PluginSlot } from "./slots";
 

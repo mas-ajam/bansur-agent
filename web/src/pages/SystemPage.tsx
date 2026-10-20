@@ -27,19 +27,19 @@ import {
   Upload,
   X,
 } from "lucide-react";
-import { Badge } from "@bansur-research/ui/ui/components/badge";
-import { Button } from "@bansur-research/ui/ui/components/button";
-import { Spinner } from "@bansur-research/ui/ui/components/spinner";
-import { H2 } from "@bansur-research/ui/ui/components/typography/h2";
-import { Card, CardContent } from "@bansur-research/ui/ui/components/card";
-import { Checkbox } from "@bansur-research/ui/ui/components/checkbox";
-import { Input } from "@bansur-research/ui/ui/components/input";
-import { Label } from "@bansur-research/ui/ui/components/label";
-import { Select, SelectOption } from "@bansur-research/ui/ui/components/select";
-import { Toast } from "@bansur-research/ui/ui/components/toast";
-import { useToast } from "@bansur-research/ui/hooks/use-toast";
-import { useConfirmDelete } from "@bansur-research/ui/hooks/use-confirm-delete";
-import { ConfirmDialog } from "@bansur-research/ui/ui/components/confirm-dialog";
+import { Badge } from "@nous-research/ui/ui/components/badge";
+import { Button } from "@nous-research/ui/ui/components/button";
+import { Spinner } from "@nous-research/ui/ui/components/spinner";
+import { H2 } from "@nous-research/ui/ui/components/typography/h2";
+import { Card, CardContent } from "@nous-research/ui/ui/components/card";
+import { Checkbox } from "@nous-research/ui/ui/components/checkbox";
+import { Input } from "@nous-research/ui/ui/components/input";
+import { Label } from "@nous-research/ui/ui/components/label";
+import { Select, SelectOption } from "@nous-research/ui/ui/components/select";
+import { Toast } from "@nous-research/ui/ui/components/toast";
+import { useToast } from "@nous-research/ui/hooks/use-toast";
+import { useConfirmDelete } from "@nous-research/ui/hooks/use-confirm-delete";
+import { ConfirmDialog } from "@nous-research/ui/ui/components/confirm-dialog";
 import { useModalBehavior } from "@/hooks/useModalBehavior";
 import { DeleteConfirmDialog } from "@/components/DeleteConfirmDialog";
 import { BansurConsoleModal } from "@/components/BansurConsoleModal";

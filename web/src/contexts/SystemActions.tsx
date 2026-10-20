@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { updateDebt, type UpdateDebtReceipt } from "@bansur/shared";
 import { api } from "@/lib/api";
 import type { ActionStatusResponse } from "@/lib/api";
-import { Toast } from "@bansur-research/ui/ui/components/toast";
+import { Toast } from "@nous-research/ui/ui/components/toast";
 import { sharedGatewayProfiles, sharedGatewayRestartedMessage } from "@/lib/shared-gateway";
 import { useI18n } from "@/i18n";
 import {
