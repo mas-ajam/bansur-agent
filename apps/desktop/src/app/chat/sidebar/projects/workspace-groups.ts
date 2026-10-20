@@ -1,5 +1,5 @@
-import type { BansurGitBranch, BansurGitWorktree } from '@/global'
 import type { ProjectInfo, SessionInfo } from '@/bansur'
+import type { BansurGitBranch, BansurGitWorktree } from '@/global'
 import { normalize } from '@/lib/text'
 
 import { rankSessions } from '../order'

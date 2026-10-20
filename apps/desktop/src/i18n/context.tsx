@@ -2,7 +2,7 @@ import { applyDocumentLocale, isRecord } from '@bansur/shared/i18n'
 import { useStore } from '@nanostores/react'
 import { createContext, type ReactNode, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react'
 
-import { getBansurConfigRecord, type BansurConfigRecord, retainConfigReadOrigin, saveBansurConfig } from '@/bansur'
+import { type BansurConfigRecord, getBansurConfigRecord, retainConfigReadOrigin, saveBansurConfig } from '@/bansur'
 
 import { TRANSLATIONS } from './catalog'
 import {

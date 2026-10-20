@@ -1,6 +1,6 @@
 import { LOCAL_CONNECTION_ID } from '@bansur/shared'
 
-import { capabilityScoped, bansurApi, type OwnerScope } from '@/api/client'
+import { bansurApi, capabilityScoped, type OwnerScope } from '@/api/client'
 import type { BansurConnection } from '@/global'
 import { translateNow } from '@/i18n'
 import { desktopFsCacheKey, isReadFileErrorResult, readDesktopFileDataUrl } from '@/lib/desktop-fs'

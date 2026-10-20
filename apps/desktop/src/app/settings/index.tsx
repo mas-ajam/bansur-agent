@@ -2,10 +2,10 @@ import { useStore } from '@nanostores/react'
 import { type ComponentType, useCallback, useEffect, useMemo, useRef } from 'react'
 import { Navigate, useLocation, useNavigate } from 'react-router'
 
+import { getBansurConfigDefaults, getBansurConfigRecord, saveBansurConfig } from '@/bansur'
 import { codiconIcon } from '@/components/ui/codicon'
 import { KbdCombo } from '@/components/ui/kbd'
 import { Tip } from '@/components/ui/tooltip'
-import { getBansurConfigDefaults, getBansurConfigRecord, saveBansurConfig } from '@/bansur'
 import { useI18n } from '@/i18n'
 import { triggerHaptic } from '@/lib/haptics'
 import {

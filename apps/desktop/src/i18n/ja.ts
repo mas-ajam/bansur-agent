@@ -1255,7 +1255,8 @@ export const jaOverrides = {
       activeBackend: '使用中',
       activeBackendHint: 'これが現在アクティブなバックエンドです',
       useBackend: 'このバックエンドを使う',
-      bansurIncluded: 'Bansur サブスクリプションに含まれています。有効にするには Bansur Portal にサインインしてください。',
+      bansurIncluded:
+        'Bansur サブスクリプションに含まれています。有効にするには Bansur Portal にサインインしてください。',
       bansurAuthNeededTitle: 'Bansur Portal にサインイン',
       bansurAuthNeededMessage: provider =>
         `${provider} は保存されましたが、Bansur Portal にサインインするまで有効になりません。`,

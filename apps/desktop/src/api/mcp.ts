@@ -1,6 +1,6 @@
 import type { McpCatalogResponse, McpServerSummary } from '@/types/bansur'
 
-import { capabilityScoped, bansurApi, type ProfileScope, profileScoped } from './client'
+import { bansurApi, capabilityScoped, type ProfileScope, profileScoped } from './client'
 
 export interface McpTestResult {
   ok: boolean

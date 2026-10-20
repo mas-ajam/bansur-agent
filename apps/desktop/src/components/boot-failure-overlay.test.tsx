@@ -249,7 +249,9 @@ describe('BootFailureOverlay', () => {
     const gatewayUrl = 'https://agent-1.agents.bansur-agent.pages.dev'
     const logout = vi.fn().mockResolvedValue({ ok: true, connected: false })
     const nativeLogin = vi.fn().mockResolvedValue({ ok: true, connected: false })
-    const cloudStatus = vi.fn().mockResolvedValue({ portalBaseUrl: 'https://portal.bansur-agent.pages.dev', signedIn: false })
+    const cloudStatus = vi
+      .fn()
+      .mockResolvedValue({ portalBaseUrl: 'https://portal.bansur-agent.pages.dev', signedIn: false })
 
     const cloudLogin = vi.fn().mockResolvedValue({
       ok: true,

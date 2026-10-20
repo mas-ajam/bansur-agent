@@ -52,12 +52,13 @@ import { ComposerTriggerPopover } from '@/app/chat/composer/trigger-popover'
 import { isRedoShortcut, isUndoShortcut } from '@/app/chat/composer/undo-history'
 import { chipTypedUrlOnSpace, linkifyUrls } from '@/app/chat/composer/url-refs'
 import {
-  extractDroppedFiles,
   BANSUR_PATHS_MIME,
+  extractDroppedFiles,
   isImagePath,
   partitionDroppedFiles
 } from '@/app/chat/hooks/use-composer-actions'
 import { uploadComposerAttachment } from '@/app/session/hooks/use-prompt-actions'
+import type { BansurGateway } from '@/bansur'
 import { bansurDirectiveFormatter } from '@/components/assistant-ui/directive-text'
 import {
   StickyHumanMessageContainer,
@@ -67,7 +68,6 @@ import {
   USER_BUBBLE_BASE_CLASS
 } from '@/components/assistant-ui/thread/user-message'
 import { Codicon } from '@/components/ui/codicon'
-import type { BansurGateway } from '@/bansur'
 import { useI18n } from '@/i18n'
 import { attachmentDisplayText, attachmentId, pathLabel } from '@/lib/chat-runtime'
 import { sanitizeComposerInput } from '@/lib/composer-input-sanitize'

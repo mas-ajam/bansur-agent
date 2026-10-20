@@ -8,9 +8,9 @@ import { droppedFileInlineRefs } from '../composer/inline-refs'
 
 import {
   attachmentPreviewDataUrl,
+  BANSUR_PATHS_MIME,
   type DroppedFile,
   extractDroppedFiles,
-  BANSUR_PATHS_MIME,
   partitionDroppedFiles,
   resolveImageAttachmentPreview,
   useComposerActions

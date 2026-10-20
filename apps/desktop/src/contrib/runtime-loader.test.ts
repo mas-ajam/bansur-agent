@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import type { BansurReadDirResult } from '@/global'
 import type * as BansurModule from '@/bansur'
+import type { BansurReadDirResult } from '@/global'
 
 import { emitGatewayEvent } from './events'
 import { $pluginRecords, publishPlugin, setPluginEnabled } from './plugins-store'

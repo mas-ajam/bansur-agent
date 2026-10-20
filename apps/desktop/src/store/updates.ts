@@ -8,16 +8,16 @@ import { atom } from 'nanostores'
 
 import { CANONICAL_GATEWAY_PROTOCOL } from '@/api/canonical-protocol'
 import { connectionScoped, profileScoped } from '@/api/client'
+import { checkBansurUpdate, getActionStatus, updateBansur } from '@/bansur'
 import type {
+  BansurConnection,
   DesktopUpdateApplyOptions,
   DesktopUpdateApplyResult,
   DesktopUpdateProgress,
   DesktopUpdateStage,
   DesktopUpdateStatus,
-  DesktopVersionInfo,
-  BansurConnection
+  DesktopVersionInfo
 } from '@/global'
-import { checkBansurUpdate, getActionStatus, updateBansur } from '@/bansur'
 import { translateNow } from '@/i18n'
 import { persistString, storedString } from '@/lib/storage'
 import { $connectionsRegistry, refreshConnectionsRegistry } from '@/store/connections'

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { Settings2, Wrench } from '@/lib/icons'
-import type { ConfigFieldSchema, BansurConfigRecord } from '@/types/bansur'
+import type { BansurConfigRecord, ConfigFieldSchema } from '@/types/bansur'
 
 import {
   buildConfigSearchEntries,

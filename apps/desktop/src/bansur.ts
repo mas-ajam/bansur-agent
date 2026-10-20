@@ -5,10 +5,10 @@
 // capabilityScoped are shared across api/ but must not reach call sites, or
 // request scoping stops having a single owner.
 export {
-  getApiRequestConnection,
-  getApiRequestProfile,
   bansurApi,
   BansurGateway,
+  getApiRequestConnection,
+  getApiRequestProfile,
   profileScopeKey,
   PROMPT_SUBMIT_REQUEST_TIMEOUT_MS,
   resolveOwnerNow,
@@ -47,6 +47,8 @@ export type {
   AuxiliaryModelsResponse,
   AuxiliaryTaskAssignment,
   BackendUpdateCheckResponse,
+  BansurConfig,
+  BansurConfigRecord,
   ComputerUseCheck,
   ComputerUsePermissionSource,
   ComputerUseStatus,
@@ -66,8 +68,6 @@ export type {
   ElevenLabsVoice,
   ElevenLabsVoicesResponse,
   EnvVarInfo,
-  BansurConfig,
-  BansurConfigRecord,
   LogsResponse,
   McpCatalogEntry,
   McpCatalogResponse,

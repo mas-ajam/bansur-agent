@@ -1,6 +1,6 @@
 import type { ModelCapabilities, ModelOptionProvider, ModelOptionsResult } from '@bansur/shared'
 
-import { getGlobalModelOptions, type BansurGateway } from '@/bansur'
+import { type BansurGateway, getGlobalModelOptions } from '@/bansur'
 
 type CatalogProviderIdentity = Partial<Pick<ModelOptionProvider, 'aliases' | 'name'>> &
   Pick<ModelOptionProvider, 'slug'>

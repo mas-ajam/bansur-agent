@@ -4,9 +4,6 @@ import { useQuery } from '@tanstack/react-query'
 import { type ReactNode, useCallback, useMemo, useState } from 'react'
 
 import { ArchiveSkillConfirmDialog } from '@/app/learning/archive-skill-confirm-dialog'
-import { CodeEditor } from '@/components/chat/code-editor'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import {
   editLearningNode,
   getLearningNode,
@@ -15,6 +12,9 @@ import {
   profileScopeKey,
   setSkillEnabled
 } from '@/bansur'
+import { CodeEditor } from '@/components/chat/code-editor'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { useI18n } from '@/i18n'
 import { Loader2 } from '@/lib/icons'
 import { Codecs, persistentAtom } from '@/lib/persisted'

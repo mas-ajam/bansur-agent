@@ -9,7 +9,7 @@ import type {
 } from '@/types/bansur'
 import type { ActionResponse } from '@/types/bansur'
 
-import { capabilityScoped, bansurApi, type ProfileScope, profileScoped } from './client'
+import { bansurApi, capabilityScoped, type ProfileScope, profileScoped } from './client'
 
 export function getSkills(profile?: ProfileScope): Promise<SkillInfo[]> {
   return window.bansurDesktop.api<SkillInfo[]>({

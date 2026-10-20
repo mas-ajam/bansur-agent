@@ -6,7 +6,7 @@ import { AccentSwatch } from '@/components/ui/accent-swatch'
 import { Button } from '@/components/ui/button'
 import { useI18n } from '@/i18n'
 import { useTheme } from '@/themes'
-import { accentsFor, CUSTOM_ACCENT_PREFIX, BANSUR_ACCENT } from '@/themes/accents'
+import { accentsFor, BANSUR_ACCENT, CUSTOM_ACCENT_PREFIX } from '@/themes/accents'
 
 import { CARD_ACTION_CLASS } from '../setup-beat/card-type'
 

@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
-import type { DesktopConnectionsRegistry, BansurConnection } from '@/global'
 import type * as Bansur from '@/bansur'
+import type { BansurConnection, DesktopConnectionsRegistry } from '@/global'
 
 import { deferred } from '../test/deferred'
 

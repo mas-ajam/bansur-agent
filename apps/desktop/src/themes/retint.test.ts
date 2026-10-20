@@ -2,7 +2,7 @@ import { contrastRatio } from '@bansur/shared/color'
 import { describe, expect, it } from 'vitest'
 
 import { hexToOklch, withHue } from './color'
-import { githubTheme, bansurTheme } from './presets'
+import { bansurTheme, githubTheme } from './presets'
 import { retintTheme } from './retint'
 import type { DesktopThemeColors } from './types'
 

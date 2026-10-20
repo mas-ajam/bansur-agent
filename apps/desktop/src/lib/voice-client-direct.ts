@@ -1,5 +1,5 @@
 import { bansurApiAs, type OwnerScope, ownerScoped, type ResolvedOwner } from '@/api/client'
-import { getApiRequestConnection, getApiRequestProfile, bansurApi } from '@/bansur'
+import { bansurApi, getApiRequestConnection, getApiRequestProfile } from '@/bansur'
 
 /**
  * Client-direct voice: call the active profile's STT/TTS providers straight

@@ -55,7 +55,6 @@ export function ugitGitBinaries(localAppData: string, fs: GitCandidateFs): strin
     .filter(fs.existsSync)
 }
 
-
 /**
  * Find Git installed by Bansur PM under `%LOCALAPPDATA%\bansur\tools`.
  * PM versions the tool directory, so resolve the newest available executable

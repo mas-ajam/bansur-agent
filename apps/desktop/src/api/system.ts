@@ -15,9 +15,9 @@ import type {
 } from '@/types/bansur'
 
 import {
-  capabilityScoped,
   bansurApi,
   bansurApiAs,
+  capabilityScoped,
   type OwnerScope,
   ownerScoped,
   type ProfileScope,

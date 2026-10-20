@@ -9,8 +9,8 @@ import {
   projectOwnerBySessionId,
   type SidebarProjectTree
 } from '@/app/chat/sidebar/projects/workspace-groups'
+import { bansurApi, type BansurGateway, getBansurConfig, type SessionInfo } from '@/bansur'
 import type { BansurGitBaseBranch, BansurGitBranch } from '@/global'
-import { getBansurConfig, bansurApi, type BansurGateway, type SessionInfo } from '@/bansur'
 import { translateNow } from '@/i18n'
 import { desktopDefaultCwd, isDesktopFsRemoteMode, selectDesktopPaths, writeDesktopFileText } from '@/lib/desktop-fs'
 import { desktopGit } from '@/lib/desktop-git'

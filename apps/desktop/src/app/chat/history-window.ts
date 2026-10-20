@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
-import { capabilityScoped, bansurApi, type ProfileScope, sessionReadOwnerPin } from '@/api/client'
+import { bansurApi, capabilityScoped, type ProfileScope, sessionReadOwnerPin } from '@/api/client'
 import {
   cachedTimelineIndex,
   previousPromptRowId,

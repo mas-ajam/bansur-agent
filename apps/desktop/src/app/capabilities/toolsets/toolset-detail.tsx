@@ -1,8 +1,8 @@
 import { compactNumber } from '@bansur/shared'
 import { useNavigate } from 'react-router'
 
-import { Button } from '@/components/ui/button'
 import { type ProfileScope, profileScopeKey } from '@/bansur'
+import { Button } from '@/components/ui/button'
 import { useI18n } from '@/i18n'
 import type { ToolsetInfo } from '@/types/bansur'
 

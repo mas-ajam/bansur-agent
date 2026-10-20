@@ -2,8 +2,8 @@ import { useQuery } from '@tanstack/react-query'
 import { useEffect, useMemo, useRef, useState } from 'react'
 
 import {
-  getElevenLabsVoices,
   getBansurConfigSchema,
+  getElevenLabsVoices,
   type ProfileScope,
   profileScopeKey,
   saveBansurConfigRecord

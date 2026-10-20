@@ -9,8 +9,6 @@ import {
   olderPageReader
 } from '@/app/chat/transcript-backfill'
 import { defaultNewSessionTarget, prepareDefaultNewSession } from '@/app/session/new-session-route'
-import { revealTreePane } from '@/components/pane-shell/tree/store'
-import { setWorkspaceScope } from '@/components/pane-shell/workspace-scope'
 import {
   deleteSession,
   fetchStoredTranscriptAcrossBackends,
@@ -18,6 +16,8 @@ import {
   getLatestSessionMessages,
   setSessionArchived
 } from '@/bansur'
+import { revealTreePane } from '@/components/pane-shell/tree/store'
+import { setWorkspaceScope } from '@/components/pane-shell/workspace-scope'
 import { useI18n } from '@/i18n'
 import {
   type ChatMessage,

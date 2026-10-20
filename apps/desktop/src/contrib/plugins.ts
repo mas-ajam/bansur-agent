@@ -14,7 +14,7 @@
  */
 
 import { trackGatewayEventDisposers } from './events'
-import { createPluginContext, type BansurPlugin } from './plugin'
+import { type BansurPlugin, createPluginContext } from './plugin'
 import { pluginActive, publishPlugin } from './plugins-store'
 import { watchRuntimePlugins } from './runtime-loader'
 

@@ -1,7 +1,7 @@
 import { foldPersonalityName } from '@/lib/personalities'
 import { asText, normalize } from '@/lib/text'
 import { localShowReasoning } from '@/store/reasoning-disclosure'
-import type { ConfigFieldSchema, BansurConfig, BansurConfigRecord, ToolsetInfo } from '@/types/bansur'
+import type { BansurConfig, BansurConfigRecord, ConfigFieldSchema, ToolsetInfo } from '@/types/bansur'
 
 import { BUILTIN_PERSONALITIES, ENUM_OPTIONS, PROVIDER_GROUPS, SECTIONS } from './constants'
 

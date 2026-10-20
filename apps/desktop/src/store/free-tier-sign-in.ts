@@ -5,7 +5,7 @@ import { cancelOAuthSession, listOAuthProviders, pollOAuthSession, startOAuthLog
 import { gatewayActivationEpoch } from '@/store/gateway'
 import type { FreeTierStatus } from '@/types/bansur'
 
-import { $freeTierStatus, type FreeTierRequester, BANSUR_PROVIDER_ID, refreshFreeTierStatus } from './free-tier'
+import { $freeTierStatus, BANSUR_PROVIDER_ID, type FreeTierRequester, refreshFreeTierStatus } from './free-tier'
 import { $localModelOfferPending } from './local-model-offer'
 import { onboardingSurfaceActive } from './onboarding-presence'
 

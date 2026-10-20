@@ -84,7 +84,10 @@ describe('fetchRuntimeReadinessSignals', () => {
 
     await fetchRuntimeReadinessSignals(requestGateway, 'bansur')
 
-    expect(calls).toEqual([{ method: 'setup.status' }, { method: 'setup.runtime_check', params: { provider: 'bansur' } }])
+    expect(calls).toEqual([
+      { method: 'setup.status' },
+      { method: 'setup.runtime_check', params: { provider: 'bansur' } }
+    ])
   })
 })
 

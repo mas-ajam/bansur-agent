@@ -1,3 +1,4 @@
+import { bansurApi } from '@/bansur'
 import type {
   BansurGitBaseBranch,
   BansurGitBranch,
@@ -7,7 +8,6 @@ import type {
   BansurReviewList,
   BansurReviewShipInfo
 } from '@/global'
-import { bansurApi } from '@/bansur'
 
 import { desktopFsProfile, isDesktopFsRemoteMode } from './desktop-fs'
 

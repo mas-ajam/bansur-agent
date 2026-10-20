@@ -2,7 +2,7 @@ import assert from 'node:assert/strict'
 
 import { test } from 'vitest'
 
-import { hasWindowsPathPrefix, isExternalVenvHolder, isBansurOwnedVenvDaemon } from './venv-holder-select'
+import { hasWindowsPathPrefix, isBansurOwnedVenvDaemon, isExternalVenvHolder } from './venv-holder-select'
 
 const SCRIPTS = 'C:\\Bansur\\venv\\Scripts'
 

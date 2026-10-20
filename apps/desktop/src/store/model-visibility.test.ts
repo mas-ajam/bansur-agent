@@ -57,7 +57,10 @@ describe('model visibility', () => {
       modelVisibilityKey('bansur', 'hermes-4')
     ])
 
-    const providers = [provider('claude-sub', ['sonnet', 'haiku', 'opus']), provider('bansur', ['hermes-4', 'bansur-5'])]
+    const providers = [
+      provider('claude-sub', ['sonnet', 'haiku', 'opus']),
+      provider('bansur', ['hermes-4', 'bansur-5'])
+    ]
     const visible = effectiveVisibleKeys(stored, providers, known)
 
     expect(visible.has(modelVisibilityKey('claude-sub', 'opus'))).toBe(true)

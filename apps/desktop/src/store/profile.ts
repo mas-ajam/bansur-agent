@@ -1,8 +1,8 @@
 import { LOCAL_CONNECTION_ID, registryBackendScopeKey } from '@bansur/shared'
 import { atom, batch, computed } from 'nanostores'
 
+import { bansurApi, getProfiles, setApiRequestProfile, STARTUP_REQUEST_TIMEOUT_MS } from '@/bansur'
 import type { BansurConnection } from '@/global'
-import { getProfiles, bansurApi, setApiRequestProfile, STARTUP_REQUEST_TIMEOUT_MS } from '@/bansur'
 import { sortByProfileOrder as sortProfilesByOrder } from '@/lib/profile-order'
 import { invalidateProfileScopedQueries } from '@/lib/query-client'
 import {

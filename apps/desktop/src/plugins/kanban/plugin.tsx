@@ -12,9 +12,9 @@
 import './kanban.css'
 
 import {
+  type BansurPlugin,
   cn,
   Codicon,
-  type BansurPlugin,
   host,
   type KeybindContribution,
   KEYBINDS_AREA,

@@ -6,7 +6,7 @@ import type {
   ProfilesResponse
 } from '@/types/bansur'
 
-import { capabilityScoped, bansurApi, type ProfileScope, STARTUP_REQUEST_TIMEOUT_MS } from './client'
+import { bansurApi, capabilityScoped, type ProfileScope, STARTUP_REQUEST_TIMEOUT_MS } from './client'
 
 export function getProfiles(scope?: ProfileScope): Promise<ProfilesResponse> {
   return bansurApi<ProfilesResponse>({
@@ -16,7 +16,9 @@ export function getProfiles(scope?: ProfileScope): Promise<ProfilesResponse> {
   })
 }
 
-export function createProfile(body: ProfileCreatePayload): Promise<{ name: string; ok: boolean; path: string; soul_set?: boolean }> {
+export function createProfile(
+  body: ProfileCreatePayload
+): Promise<{ name: string; ok: boolean; path: string; soul_set?: boolean }> {
   return bansurApi<{ name: string; ok: boolean; path: string; soul_set?: boolean }>({
     path: '/api/profiles',
     method: 'POST',

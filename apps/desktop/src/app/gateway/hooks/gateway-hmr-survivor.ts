@@ -3,8 +3,8 @@
 // self-accept so this module's own reload doesn't reset the cache. Prod strips
 // import.meta.hot → byte-for-byte unchanged live unmount.
 
-import type { BansurConnection } from '@/global'
 import type { BansurGateway } from '@/bansur'
+import type { BansurConnection } from '@/global'
 
 export interface GatewaySurvivor {
   gateway: BansurGateway

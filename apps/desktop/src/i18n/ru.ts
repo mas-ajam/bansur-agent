@@ -1392,7 +1392,8 @@ export const ruOverrides = {
       useBackend: 'Использовать этот бэкенд',
       bansurIncluded: 'Входит в подписку Bansur — войдите в Bansur Portal, чтобы активировать.',
       bansurAuthNeededTitle: 'Войдите в Bansur Portal',
-      bansurAuthNeededMessage: provider => `${provider} сохранён, но не активируется, пока вы не войдёте в Bansur Portal.`,
+      bansurAuthNeededMessage: provider =>
+        `${provider} сохранён, но не активируется, пока вы не войдёте в Bansur Portal.`,
       bansurAuthSignIn: 'Войти',
       bansurAuthDoneTitle: 'Bansur Portal подключён',
       bansurAuthDoneMessage: 'Ваши бэкенды по подписке теперь активны.',

@@ -5,8 +5,8 @@ import { $terminalBackend } from '@/store/session'
 import { isSessionRemote } from '@/store/session-states'
 
 import {
-  extractDroppedFiles,
   BANSUR_PATHS_MIME,
+  extractDroppedFiles,
   type OsDropStagingContext,
   partitionDroppedFiles
 } from '../../hooks/use-composer-actions'
