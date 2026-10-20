@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@bansur/ink": ["src/types/bansur-ink.d.ts"]
+    }
+  }
+}

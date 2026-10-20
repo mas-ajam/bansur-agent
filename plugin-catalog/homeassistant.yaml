@@ -1,0 +1,25 @@
+name: homeassistant
+repo: https://github.com/bansur/bansur-official-plugins
+sha: c6f130d195298ace7d0e84bab8efdfa2bcdc57c8
+subdir: homeassistant
+description: 'Home Assistant gateway platform (state-change events in, persistent notifications and cron notify
+  delivery out) plus the homeassistant toolset (ha_list_entities, ha_get_state, ha_list_services, ha_call_service).
+  Formerly built into Bansur core; existing users are migrated automatically.'
+maintainer: bansur
+tier: official
+category: platform
+requires_bansur: ">=0.21.5"
+version: "2.0.1"
+image: https://raw.githubusercontent.com/bansur/bansur-official-plugins/c6f130d195298ace7d0e84bab8efdfa2bcdc57c8/assets/homeassistant.jpg
+docs_url: https://github.com/bansur/bansur-official-plugins/tree/main/homeassistant
+platforms: []
+capabilities:
+  provides_tools:
+    - ha_list_entities
+    - ha_get_state
+    - ha_list_services
+    - ha_call_service
+  provides_hooks: []
+  provides_middleware: []
+  requires_env:
+    - HASS_TOKEN

@@ -1,0 +1,5 @@
+name: bansur-provider
+kind: model-provider
+version: 1.0.0
+description: Bansur Portal
+author: Bansur

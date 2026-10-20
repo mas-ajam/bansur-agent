@@ -1,0 +1,20 @@
+name: bansur-workbench
+repo: https://github.com/sxuff/hermes-workbench
+sha: f07fb5c90e24c1a396604758feb0fd4ae077760b
+description: The Bansur desktop app in your browser. `bansur workbench` serves the desktop interface through the Bansur dashboard, for headless servers, VPSes and tablets. Disclosure — community plugin, not a Bansur product. On the first `bansur workbench` run and again after each Bansur update it runs `npm install --ignore-scripts` (guided by Bansur's lockfile) and Vite against your Bansur checkout's desktop sources, writing only under ~/.bansur/bansur-workbench and its own plugin dir (the checkout is only read), and starts `bansur dashboard` on loopback when none is running.
+maintainer: sxuff
+tier: community
+category: desktop
+requires_bansur: ">=0.21"
+docs_url: https://github.com/sxuff/hermes-workbench#readme
+version: "0.2.1"
+image: https://raw.githubusercontent.com/sxuff/bansur-workbench/f07fb5c90e24c1a396604758feb0fd4ae077760b/docs/media/banner.png
+screenshots:
+  - https://raw.githubusercontent.com/sxuff/bansur-workbench/f07fb5c90e24c1a396604758feb0fd4ae077760b/docs/media/session.png
+  - https://raw.githubusercontent.com/sxuff/bansur-workbench/f07fb5c90e24c1a396604758feb0fd4ae077760b/docs/media/slash-commands.png
+  - https://raw.githubusercontent.com/sxuff/bansur-workbench/f07fb5c90e24c1a396604758feb0fd4ae077760b/docs/media/model-picker.png
+capabilities:
+  provides_tools: []
+  provides_hooks: []
+  provides_middleware: []
+  requires_env: []
