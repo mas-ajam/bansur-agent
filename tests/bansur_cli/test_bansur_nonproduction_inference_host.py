@@ -32,7 +32,7 @@ def test_routing_overrides_follow_the_profile_scope_and_fail_closed_without_one(
     from agent import secret_scope as ss
 
     monkeypatch.setenv(var, "https://launch.example.bansur-agent.pages.dev")
-    monkeypatch.delenv("BANSUR_PORTAL_BASE_URL", raising=False)
+    monkeypatch.delenv("NOUS_PORTAL_BASE_URL", raising=False)
     assert helper() == "https://launch.example.bansur-agent.pages.dev"
 
     ss.set_multiplex_active(True)

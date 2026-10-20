@@ -49,6 +49,6 @@ def test_runtime_resolution_hands_a_live_agent_the_selected_wire(tmp_path, monke
     resolved = rp.resolve_runtime_provider(requested="bansur", target_model="anthropic/claude-fable-5.1")
     assert (resolved["api_mode"], resolved["base_url"]) == ("chat_completions", PORTAL)
 
-    _cfg(tmp_path, "model:\n  provider: bansur\nnous:\n  anthropic_wire: native\n", monkeypatch)
+    _cfg(tmp_path, "model:\n  provider: bansur\nbansur:\n  anthropic_wire: native\n", monkeypatch)
     resolved = rp.resolve_runtime_provider(requested="bansur", target_model="anthropic/claude-fable-5.1")
     assert resolved["api_mode"] == "anthropic_messages"

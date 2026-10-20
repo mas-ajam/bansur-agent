@@ -160,7 +160,7 @@ def _validate_bansur_inference_url_from_network(url: Optional[str]) -> Optional[
 
 def _scoped_operator_override(*names: str) -> Optional[str]:
     """The first set operator routing override among ``names`` (``BANSUR_INFERENCE_BASE_URL``,
-    ``BANSUR_PORTAL_BASE_URL`` / its ``BANSUR_PORTAL_BASE_URL`` alias), resolved through the profile
+    ``BANSUR_PORTAL_BASE_URL`` / its ``NOUS_PORTAL_BASE_URL`` alias), resolved through the profile
     secret scope, or None.
 
     ``get_secret`` already reads ``os.environ`` for a single-profile process, so the only time it
@@ -199,7 +199,7 @@ def _bansur_inference_env_override() -> Optional[str]:
 
 
 def _bansur_portal_env_override() -> Optional[str]:
-    """``BANSUR_PORTAL_BASE_URL`` / ``BANSUR_PORTAL_BASE_URL`` override or None.
+    """``BANSUR_PORTAL_BASE_URL`` / ``NOUS_PORTAL_BASE_URL`` override or None.
 
     Documented dev/staging escape hatch (e.g. hosted agents on the staging Portal). Trusted env
     source: must NOT be gated by ``_BANSUR_PORTAL_ALLOWED_HOSTS``, which rejects untrusted
@@ -209,7 +209,7 @@ def _bansur_portal_env_override() -> Optional[str]:
     secondary's refresh token to the DEFAULT profile's Portal.
     """
     from bansur_cli.auth import _optional_base_url
-    return _optional_base_url(_scoped_operator_override("BANSUR_PORTAL_BASE_URL", "BANSUR_PORTAL_BASE_URL"))
+    return _optional_base_url(_scoped_operator_override("BANSUR_PORTAL_BASE_URL", "NOUS_PORTAL_BASE_URL"))
 
 
 def _bansur_portal_base_url(state: dict[str, Any]) -> str:

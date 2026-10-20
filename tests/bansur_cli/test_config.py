@@ -68,8 +68,8 @@ class TestEnsureBansurHome:
     # module) so this fixture keeps testing the OLD text regardless of any
     # future change to _LEGACY_TEMPLATE_SOULS's length or ordering.
     _PRE_REWRITE_DEFAULT_SOUL = (
-        "You are Bansur Agent, an intelligent AI assistant created by Bansur "
-        "Research. You are helpful, knowledgeable, and direct. You assist "
+        "You are Bansur Agent, an intelligent AI assistant created by "
+        "Bansur. You are helpful, knowledgeable, and direct. You assist "
         "users with a wide range of tasks including answering questions, "
         "writing and editing code, analyzing information, creative work, "
         "and executing actions via your tools. You communicate clearly, "
