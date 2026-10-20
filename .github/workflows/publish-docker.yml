@@ -115,6 +115,7 @@ jobs:
           cache-to: ${{ matrix.variant == 'slim' && format('type=gha,mode=max,scope=docker-{0}', matrix.arch) || '' }}
 
       - name: Push to GHCR by digest (${{ matrix.variant }}/${{ matrix.arch }})
+        id: push-ghcr
         uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
         with:
           context: .
@@ -125,12 +126,17 @@ jobs:
           outputs: type=image,name=${{ env.GHCR_IMAGE }},push-by-digest=true,name-canonical=true,push=true
           cache-from: type=gha,scope=docker-${{ matrix.arch }}
 
-      - name: Export digest
+      # Each registry push is its own build-push invocation and its output
+      # digest is only valid in that registry (attestation manifests make
+      # the two pushes' digests differ), so record both, one per registry.
+      - name: Export digests
         env:
-          DIGEST: ${{ steps.push-hub.outputs.digest }}
+          HUB_DIGEST: ${{ steps.push-hub.outputs.digest }}
+          GHCR_DIGEST: ${{ steps.push-ghcr.outputs.digest }}
         run: |
           mkdir -p digests
-          printf '%s' "$DIGEST" > "digests/${{ matrix.arch }}.digest"
+          printf '%s' "$HUB_DIGEST" > "digests/${{ matrix.arch }}.digest"
+          printf '%s' "$GHCR_DIGEST" > "digests/${{ matrix.arch }}.ghcr.digest"
 
       - name: Upload digest artifact
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -188,9 +194,14 @@ jobs:
           set -euo pipefail
           suffix=""
           [ "$VARIANT" = desktop ] && suffix="-desktop"
-          amd64_digest="$(cat amd64.digest)"
-          arm64_digest="$(cat arm64.digest)"
           for image in "$IMAGE_NAME" "$GHCR_IMAGE"; do
+            if [ "$image" = "$GHCR_IMAGE" ]; then
+              amd64_digest="$(cat amd64.ghcr.digest)"
+              arm64_digest="$(cat arm64.ghcr.digest)"
+            else
+              amd64_digest="$(cat amd64.digest)"
+              arm64_digest="$(cat arm64.digest)"
+            fi
             for i in 1 2 3; do
               if docker buildx imagetools create \
                 -t "${image}:v${VERSION}${suffix}" \
