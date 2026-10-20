@@ -56,13 +56,13 @@ def source(tmp_path, monkeypatch):
     return SimpleNamespace(home=home, origin=origin, root=checkout, commits=commits, parser=parser)
 
 
-def record(name, *, repository="bansur/bansur-agent", state="active", destination=None):
+def record(name, *, repository="mas-ajam/bansur-agent", state="active", destination=None):
     return {"schema": 1, "name": name, "repository": repository, "policy": "preview",
             "state": state, "identity": {}, "nextSequence": 2, "head": None,
             **({"destination": destination} if destination else {})}
 
 
-def reader_result(source, name, destination=None, repository="bansur/bansur-agent"):
+def reader_result(source, name, destination=None, repository="mas-ajam/bansur-agent"):
     requested = record(name, repository=repository,
                        state="retired" if destination else "active", destination=destination)
     terminal = record(destination or name, repository=repository)
@@ -248,7 +248,7 @@ def publish_channel_build(channel_archive, name, build_id, commit, *, sequence=1
                 "windowsExecutableName": "Fixture"}
     version = f"1.2.{sequence}" if stable else f"0.0.{sequence}"
     request = {"schema": 1, "channel": name, "buildId": build_id, "sequence": sequence,
-               "repository": "bansur/bansur-agent", "commit": commit,
+               "repository": "mas-ajam/bansur-agent", "commit": commit,
                "sourceVersion": f"1.2.{sequence}", "version": version, "windowsVersion": version + ".0",
                "identity": identity, "bundleEnv": {}, "publicBase": base}
     if stable:

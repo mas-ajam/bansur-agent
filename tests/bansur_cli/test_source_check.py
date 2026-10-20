@@ -283,7 +283,7 @@ def test_channel_failure_never_probes_or_heals_a_branch(installation, name, fail
     elif failure == "malformed":
         body = "not JSON"
     elif failure == "foreign":
-        body["repository"] = "bansur/bansur-agent"
+        body["repository"] = "mas-ajam/bansur-agent"
     else:
         body["policy"] = "preview"
         del body["delivery"]
@@ -337,8 +337,8 @@ def test_running_revision_is_not_applied_to_an_explicit_target(installation, mon
     assert check_for_updates(install_root=linked, home=home)["currentSha"] == head
     # Default invocation retains the Nix revision probe even without a Git checkout.
     monkeypatch.setattr("bansur_cli.config.get_project_root", lambda: home)
-    responses[MAIN_CHANNEL] = (200, source_channel("main", "bansur/bansur-agent"))
-    responses["/repos/bansur/bansur-agent/commits/main"] = (200, "e" * 40)
+    responses[MAIN_CHANNEL] = (200, source_channel("main", "mas-ajam/bansur-agent"))
+    responses["/repos/mas-ajam/bansur-agent/commits/main"] = (200, "e" * 40)
     assert check_for_updates(home=home)["behind"] == 0
 
 
@@ -471,7 +471,7 @@ def test_embedded_revision_keeps_https_ref_advertisement_recovery(installation, 
     monkeypatch.setenv("BANSUR_REVISION", head)
     monkeypatch.setattr("bansur_cli.config.get_project_root", lambda: home)
     monkeypatch.setattr("bansur_cli.config.detect_install_method", lambda root: "nix")
-    responses[MAIN_CHANNEL] = (200, source_channel("main", "bansur/bansur-agent"))
+    responses[MAIN_CHANNEL] = (200, source_channel("main", "mas-ajam/bansur-agent"))
     original = subprocess.run
     probes = []
 
@@ -508,7 +508,7 @@ def test_malformed_optional_changelog_and_cache_do_not_hide_the_update(installat
                         f"/repos/fixture/fork/compare/{head}...{'a' * 40}"] * 2
 
 
-@pytest.mark.parametrize("repository,heals", [("bansur/bansur-agent", True), ("fixture/fork", False)])
+@pytest.mark.parametrize("repository,heals", [("mas-ajam/bansur-agent", True), ("fixture/fork", False)])
 def test_official_ssh_healing_uses_public_https_without_retargeting_forks(installation, monkeypatch, repository, heals):
     from bansur_cli.source_check import check_for_updates
     from bansur_cli.update_channel import set_install_channel
@@ -580,7 +580,7 @@ def test_stable_release_the_checkout_already_contains_is_a_rollback(installation
     git("tag", "v1.2.3", shas[release], cwd=bare)
     git("remote", "set-url", "origin", str(bare))
     git("checkout", "-q", "--detach", shas[on])
-    api = "/repos/bansur/bansur-agent"
+    api = "/repos/mas-ajam/bansur-agent"
     responses[f"{api}/releases/latest"] = (200, {"draft": False, "prerelease": False, "tag_name": "v1.2.3"})
     responses[f"{api}/commits/v1.2.3"] = (200, {"sha": shas[release]})
 
